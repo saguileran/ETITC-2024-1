@@ -1,5 +1,6 @@
 **Tarea: Configuración del Servidor Ubuntu con Apache 2**
 
+
 **Introducción: Conexión SSH**
 En esta tarea, aprenderás cómo configurar un servidor Ubuntu con Apache 2 para hospedar varios sitios web utilizando hosts virtuales. Antes de sumergirnos en la configuración de Apache, vamos a establecer una conexión segura con nuestro servidor Ubuntu usando SSH (Secure Shell).
 
