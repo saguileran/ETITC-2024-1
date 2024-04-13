@@ -1,7 +1,11 @@
-**Tarea: Configuración del Servidor Ubuntu con Apache 2**
+# Configuración del Servidor Ubuntu con Apache 2
+
+## Instalación VM - Ubuntu
+
+El primer paso es que instalen ubuntu en una máquina virutal y habiliten la coenxión por `ssh`. Despues vamos a trasnferir nuestros archivos utilizando `scp`.
 
 
-**Introducción: Conexión SSH**
+## Introducción: Conexión SSH
 En esta tarea, aprenderás cómo configurar un servidor Ubuntu con Apache 2 para hospedar varios sitios web utilizando hosts virtuales. Antes de sumergirnos en la configuración de Apache, vamos a establecer una conexión segura con nuestro servidor Ubuntu usando SSH (Secure Shell).
 
 1. Conéctate a tu servidor Ubuntu usando SSH:
@@ -13,16 +17,18 @@ En esta tarea, aprenderás cómo configurar un servidor Ubuntu con Apache 2 para
    - Reemplaza "nombre_usuario" con tu nombre de usuario del servidor y "dirección_ip_servidor" con la dirección IP de tu servidor.
    - Ingresa tu contraseña cuando se te solicite.
 
-**Configuración de Hosts Virtuales en Linux con Apache**
+## Configuración de Hosts Virtuales en Linux con Apache
 
-2. **Instalación de Apache 2 (5 puntos):**
+1. **Instalación de Apache 2**
    - Apache 2 es un popular software de servidor web de código abierto que alimenta un gran porcentaje de sitios web en Internet. Para instalar Apache 2 en tu servidor Ubuntu, ejecuta los siguientes comandos:
      ```
      sudo apt update
-     sudo apt install apache2
+     sudo apt install apache2 apache2-doc apache2-utils
      ```
 
-3. **Configuración de Hosts Virtuales (25 puntos):**
+Pueden encontrar más información aca, [Apache Basics Tutorial | How To Install and Configure Apache2](https://www.youtube.com/watch?v=1CDxpAzvLKY).
+
+1. **Configuración de Hosts Virtuales**
    - Apache utiliza hosts virtuales para administrar varios sitios web en un solo servidor. Cada configuración de host virtual especifica los ajustes para un sitio web específico.
    - Navega al directorio sites-available de Apache donde se almacenan los archivos de configuración de host virtual:
      ```
@@ -56,22 +62,24 @@ En esta tarea, aprenderás cómo configurar un servidor Ubuntu con Apache 2 para
      sudo systemctl reload apache2
      ```
 
-**Comparación entre Apache y Node.js para la Implementación Web**
+Esta es una breve introducción a lo que debemos hacer. Vamos a seguir y discutir el siguiente tutorial [How To Set Up Apache Virtual Hosts on Ubuntu 20.04](https://www.digitalocean.com/community/tutorials/how-to-set-up-apache-virtual-hosts-on-ubuntu-20-04) o aqui [VirtualHost Examples
+](https://httpd.apache.org/docs/2.4/vhosts/examples.html).
 
-4. **Uso de Node.js para la Implementación Web (15 puntos):**
+## Comparación entre Apache y Node.js para la Implementación Web 
+
+1. **Uso de Node.js para la Implementación Web**
    - Node.js es un entorno de ejecución de JavaScript de código abierto que te permite ejecutar código JavaScript en el lado del servidor. A menudo se utiliza para construir aplicaciones web escalables y eficientes.
    - A diferencia de Apache, que sirve archivos estáticos, Node.js es orientado a eventos y es ideal para construir aplicaciones en tiempo real y con grandes cantidades de datos.
 
-5. **Instalación de Node.js y npm (10 puntos):**
+2. **Instalación de Node.js y npm**
    - Node.js viene con un gestor de paquetes llamado npm (Node Package Manager) que simplifica el proceso de instalación y gestión de módulos de Node.js.
    - Instala Node.js y npm en tu servidor Ubuntu ejecutando los siguientes comandos:
      ```
      sudo apt update
-     sudo apt install nodejs
-     sudo apt install npm
+     sudo apt install nodejs npm
      ```
 
-6. **Implementación de una Aplicación Node.js (20 puntos):**
+3. **Implementación de una Aplicación Node.js**
    - Las aplicaciones Node.js suelen construirse utilizando frameworks como Express.js, que proporciona un conjunto robusto de características para el desarrollo web.
    - Crea un nuevo directorio para tu aplicación Node.js:
      ```
@@ -104,5 +112,10 @@ En esta tarea, aprenderás cómo configurar un servidor Ubuntu con Apache 2 para
      node app.js
      ```
 
-**Conclusión**
+Como ejemplo/ejercicio vamos a instalar el siguiente constructor de páginas web, [VvvebJs](https://github.com/givanz/VvvebJs). Adicional, vamos a utilizar un Heroku. ¿Qué es Heroku? Heroku es una Plataforma como Servicio (PaaS) en la nube basada en contenedores. Los desarrolladores utilizan Heroku para desplegar, gestionar y escalar aplicaciones modernas. Para ello utilizaremos este repositorio [node-js-getting-started
+](https://github.com/heroku/node-js-getting-started?tab=readme-ov-file).
+
+## Conclusión
 Al completar esta tarea, has obtenido experiencia práctica en la configuración de un servidor Ubuntu con Apache 2 y has aprendido sobre hosts virtuales. Además, has explorado la implementación de aplicaciones web utilizando Node.js y lo has comparado con Apache. Estas habilidades son esenciales para cualquier ingeniero de sistemas o desarrollador web que trabaje con la configuración del servidor y la implementación web.
+
+## Referencias
