@@ -176,8 +176,7 @@ En este ejercicio, crearás una base de datos en MySQL para gestionar usuarios y
 
 Recuerda utilizar correctamente las sentencias MYSQL aprendidas en el tutorial y prestar atención a la integridad referencial entre las tablas. ¡Buena suerte! 
 
-**NOTA:**
-Este trabajo debes subirlo al campus a la actividad *Bases de datos relacionales practicas* en un archivo sql o un notebook de sql que funcione correctamente.  Además, no olvides de agregar comentarios a los códigos, antes de cada ejercicio agrega un comentario con el paso correspondiente como se muestra en el siguiente código, y de subir también la imagen del diagrama. 
+**Este trabajo debes subirlo al campus a la actividad *Bases de datos relacionales practicas* en un archivo sql o un notebook de sql que funcione correctamente.  Además, no olvides de agregar comentarios a los códigos, antes de cada ejercicio agrega un comentario con el paso correspondiente como se muestra en el siguiente código, y de subir también la imagen del diagrama.** 
 
 ```sql
 # paso numero 1
