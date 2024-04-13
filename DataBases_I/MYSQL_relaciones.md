@@ -131,7 +131,7 @@ CREATE TABLE estudiantes_cursos (
 ## Conclusión
 En este tutorial, hemos cubierto operaciones básicas de MySQL como la creación de bases de datos, tablas, inserción, consulta, actualización y eliminación de datos. Además, exploramos diferentes tipos de relaciones en MySQL, incluyendo uno a uno, uno a muchos y muchos a muchos. Comprender estos conceptos es esencial para diseñar y gestionar bases de datos de manera efectiva en MySQL. Experimenta con estas operaciones y relaciones para obtener una comprensión más profunda de la gestión de bases de datos MySQL.
 
-## Ejercicio: Gestión de Usuarios y Perfiles**
+## Ejercicio: Gestión de Usuarios y Perfiles
 
 En este ejercicio, crearás una base de datos en MySQL para gestionar usuarios y sus perfiles, aplicando los conceptos aprendidos sobre operaciones básicas y relaciones en MySQL. Puedes utilizar la línea de comandos, workbrench, o visual studio code para excribir los comandos.
 
