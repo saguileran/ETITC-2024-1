@@ -102,6 +102,7 @@ Primero iniciemos instalado c++, el entorno y compilador, para ello ejecutemos e
 
 ```bash
 sudo apt install build-essential
+sudo apt install g++
 g++ nombre_del_archivo.cpp
 ```
 
@@ -226,3 +227,7 @@ En resumen, este tutorial proporciona una base sólida para comprender y trabaja
 - [A collection of useful scripts for Linux, Windows & Mac.
 ](https://github.com/miguelgfierro/scripts)
 - [Operating Systems Concepts 10th edition - Github](https://github.com/dalmia/Operating-Systems)
+
+
+
+- [William Oquendo](https://www.youtube.com/@iluvatar1/playlists)
