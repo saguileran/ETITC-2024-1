@@ -6,7 +6,7 @@ Este tutorial tiene como objetivo aprender los conceptos relacionales básicos d
 
 #### Álgebra Relacional - operadores derivados (incluye división)
 
-[![alt text](image-1.png)](https://www.youtube.com/watch?v=aeRsupxQ6Qw)
+[![alt text](img/image-1.png)](https://www.youtube.com/watch?v=aeRsupxQ6Qw)
 
 
 ## Introducción

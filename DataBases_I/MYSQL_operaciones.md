@@ -6,7 +6,7 @@ Este tutorial tiene como objetivo aprender los conceptos relacionales básicos d
 
 #### Álgebra Relacional - operadores básicos
 
-[![alt text](image-2.png)](https://www.youtube.com/watch?v=hsNZnJjYXGM)
+[![alt text](img/image-2.png)](https://www.youtube.com/watch?v=hsNZnJjYXGM)
 
 ## Introducción
 
