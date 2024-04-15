@@ -23,6 +23,7 @@ En esta tarea, aprenderás cómo configurar un servidor Ubuntu con Apache 2 para
    - Apache 2 es un popular software de servidor web de código abierto que alimenta un gran porcentaje de sitios web en Internet. Para instalar Apache 2 en tu servidor Ubuntu, ejecuta los siguientes comandos:
      ```
      sudo apt update
+     sudo apt upgrade
      sudo apt install apache2 apache2-doc apache2-utils
      ```
 
