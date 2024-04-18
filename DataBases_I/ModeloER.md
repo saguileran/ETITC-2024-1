@@ -159,7 +159,7 @@ Este ejercicio consiste en crear un diagrama de entidad-relación (ER) para la b
 - *Empleados y Departamentos (Asignación):* Muchos a muchos (Un empleado puede ser asignado a varios departamentos y un departamento puede tener varios empleados asignados)
 - *Proyectos y Departamentos (Asignación):* Muchos a muchos (Un proyecto puede estar asociado con varios departamentos y un departamento puede estar asociado con varios proyectos)
 
-Selecciona 3 relaciones de uno a muchos y dibuja las 3 relaciones de muchos a muchos. 
+Selecciona y dibuja 3 relaciones de uno a muchos y 3 relaciones de muchos a muchos. 
 
 ####  Entregables:
 1. Diagrama ER que ilustre las entidades, atributos y relaciones para la base de datos "etitc".
