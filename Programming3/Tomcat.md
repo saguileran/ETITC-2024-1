@@ -1,12 +1,12 @@
-# Tomcat
+# Tomcat - Servidor de Aplicaciones
 
 El objetivo de esta lección es proporcionar una comprensión práctica de Apache Tomcat, centrándose en conceptos básicos, configuración del servidor, despliegue de aplicaciones y trabajo con archivos de aplicación.
 
-## 0. Conectarse mediante ssh
+## 0. Conección mediante ssh
 
 Antes de proceder a configurar Tomcat teminemos la práctica del uso de ssh. Para ello intetemos conectarnos a mi computador siguiedo las instrucciones del siguiente video [How to enable SSH on Linux Ubuntu (Easy step by step guide)](https://www.youtube.com/watch?v=Wlmne44M6fQ).
 
-Mi ip es `172.21.12.242` y el usuario es `etitc` con la contraseña *1234567890..*.
+Mi ip es `172.21.12.242` y el usuario es `etitc` con la contraseña "*1234567890..*".
 
 ```bash
 cut -d: -f1 /etc/passwd    # show users
@@ -18,7 +18,7 @@ su - user_name             # to change user from terminal
 
 Para mayor información ingresen a [How to Add and Delete Users on Ubuntu 20.04](https://www.digitalocean.com/community/tutorials/how-to-add-and-delete-users-on-ubuntu-20-04).
 
-Ahora intenten conectarse a el computador de un compañero, para ello primero creen un usuario y asignelen una clave como la de ejmplo u otra. 
+Ahora intenten conectarse a el computador de un compañero, para ello primero creen un usuario y agreguen una clave como la de ejemplo u otra. 
 
 ## 1. Conceptos Básicos
 
@@ -39,8 +39,38 @@ Apache Tomcat es un servidor web y contenedor de servlets de código abierto des
 
 ## 4. Trabajo con Archivos de Aplicación
 
-- Formato de Archivo .war: El archivo .war (Web Archive) es un formato estándar utilizado para empaquetar una aplicación web en Java. Contiene todos los archivos necesarios (JSP, HTML, clases de servlet, bibliotecas) requeridos para ejecutar la aplicación.
-- Estructura: Un archivo .war típicamente incluye un directorio `WEB-INF`, que contiene el descriptor de despliegue web.xml, directorio de clases (para clases de servlet), y directorio de librerías (para bibliotecas).
+
+- **web.xml:** Es el archivo de descriptores de despliegue web para una aplicación web en Java. Define configuraciones como servlets, filtros, escuchadores de contexto y mapeos URL.
+
+- **Servlet:** Un servlet es un componente de aplicación Java que se ejecuta en el servidor y procesa las solicitudes HTTP.
+
+- **Servlet Mapping:** Mapea las URL de las solicitudes HTTP a los servlets correspondientes en la aplicación web.
+
+- **Archivo .war:** El archivo .war (Web ARchive) es un archivo comprimido que contiene los archivos de una aplicación web, incluidos los archivos JSP, HTML, servlets, clases Java y bibliotecas. Un archivo .war típicamente incluye un directorio `WEB-INF`, que contiene el descriptor de despliegue web.xml, directorio de clases (para clases de servlet), y directorio de librerías (para bibliotecas).
+
+## 5. Estructura de Carpetas
+
+La estructura de carpetas para desplegar aplicaciones web en Tomcat generalmente incluye los siguientes directorios principales:
+
+![Tomcat directories structure](img/tomcat_folders.png)
+
+
+
+- **apps:** Este directorio contiene las aplicaciones web desplegadas en Tomcat. Cada aplicación web se almacena en un directorio separado dentro de este directorio.
+
+- **bin:** Contiene los scripts y archivos ejecutables para iniciar y detener el servidor Tomcat, así como otros scripts de utilidad.
+
+- **conf:** Aquí se almacenan los archivos de configuración de Tomcat, como `server.xml` (configuración del servidor), `web.xml` (descriptores de despliegue web) y otros archivos de configuración.
+
+- **lib:** Este directorio contiene las bibliotecas compartidas (JAR) utilizadas por todas las aplicaciones web desplegadas en Tomcat.
+
+- **logs:** Almacena los archivos de registro generados por Tomcat.
+
+- **temp:** Directorio temporal utilizado por Tomcat para almacenar archivos temporales.
+
+- **webapps:** Es el directorio principal donde se despliegan las aplicaciones web. Cada aplicación web se despliega en un subdirectorio dentro de este directorio.
+
+- **work:** Directorio de trabajo utilizado por Tomcat para almacenar archivos generados durante la compilación de JSP y otros procesos temporales.
 
 ![Tomcat directories structure](https://cdn-images-1.medium.com/v2/resize:fit:1600/1*mDgu59erV4wtpts4DtLWeg.jpeg)
 
@@ -51,21 +81,46 @@ Apache Tomcat es un servidor web y contenedor de servlets de código abierto des
    - Inicia el servidor Tomcat utilizando el script de inicio.
    - Accede a la página de bienvenida de Tomcat en tu navegador web.
   
-   En Windows esta instalación es sencilla y rápida pero vamos a relizarla en linux, para ello sigan el tutorial [How To Install Apache Tomcat 10 on Ubuntu 20.04](https://www.digitalocean.com/community/tutorials/how-to-install-apache-tomcat-10-on-ubuntu-20-04) y modifiquen la descargar por el comando
-
+   En Windows esta instalación es sencilla y rápida pero vamos a relizarla en linux, para ello sigan el tutorial [How To Install Apache Tomcat 10 on Ubuntu 20.04](https://www.digitalocean.com/community/tutorials/how-to-install-apache-tomcat-10-on-ubuntu-20-04). Lo único que deben modificar es el enlace de la descargar, utilicen este:
 ```bash
 wget https://dlcdn.apache.org/tomcat/tomcat-10/v10.1.20/bin/apache-tomcat-10.1.20.tar.gz
 ```
 
+Como ejercicio adicional cambia al puerto 8081.
+
 2. **Despliegue de una Aplicación:**
-   - Crea una aplicación web simple (por ejemplo, una aplicación JSP que muestre "¡Hola, Mundo!").
+   - Crea una aplicación web simple (por ejemplo, una aplicación JSP que muestre "¡Hola, Mundo!"). El código ejemplo lo pueden sacar de `http://localhost:8080/examples/servlets/`, sin embargo realizaremos el tutorial <br> <br> 
+   
+   [![Watch the video](img/video_tomcat.png)](https://www.youtube.com/watch?v=6yyZsEfOEu4)
+
    - Empaqueta la aplicación en un archivo .war.
+    ```bash
+    jar -cvf my_web_app.war *
+    ```
    - Copia el archivo .war a el directorio `webapps` de tu instalación de Tomcat.
-   - Accede a la aplicación desplegada en tu navegador web utilizando la URL correspondiente (por ejemplo, `http://localhost:8080/myapp`).
+
+   - Accede a la aplicación desplegada en tu navegador web utilizando la URL correspondiente (por ejemplo, `http://localhost:8082/myapp`).
 
 3. **Exploración de Archivos de Aplicación:**
    - Navega al directorio donde se desplegó la aplicación (`webapps/myapp`).
    - Explora el contenido del archivo .war, incluido el directorio `WEB-INF` y su contenido.
+
+4. **Personaliza el contenido:**
+   - Agrega el contenido html de la carta.
+
+5. **Descarga y despliega un .war file:**
+   - Descarga alguno de los siguientes:
+     - [Sample war file - VIU.ca](http://csci.viu.ca/~barskym/teaching/DM2012/labs/LAB6/SampleApp.html)
+     - [Sample Application - Tomcat](https://tomcat.apache.org/tomcat-7.0-doc/appdev/sample/)
+     - [Example Hello World WAR-File](https://github.com/aeimer/java-example-helloworld-war?tab=readme-ov-file)
+
+   Adicionalmente busca un war file e intenta desplegarlo.
+
+6. **La nueva era de Python - Django:** 
+
+   Sigue el tutorial [Writing your first Django app, part 1](https://docs.djangoproject.com/en/5.0/intro/tutorial01/).
+
+Revisen el capítulo 3 del libro guia Nicholas S. Williams - Professional Java for Web Applications.
 
 **Conclusión**
 Este ejercicio práctico proporciona experiencia práctica con Apache Tomcat, cubriendo la configuración básica, el despliegue de aplicaciones y el trabajo con archivos de aplicación. Experimentar con estos conceptos mejorará tu comprensión del desarrollo de aplicaciones web utilizando Tomcat.
@@ -78,6 +133,7 @@ Este ejercicio práctico proporciona experiencia práctica con Apache Tomcat, cu
 - [Documentation Index](https://tomcat.apache.org/tomcat-10.0-doc/index.html)
 - [Mastering Apache Tomcat : A Comprehensive Guide For Webserver Setup](https://www.youtube.com/watch?v=c7qZAL1bHi0)
 - [Tomcat - A Minimalistic User's Guide](https://tomcat.apache.org/tomcat-3.2-doc/uguide/tomcat_ug.html)
+- [Java-Servlets](https://github.com/SuneetPatil/Java-Servlets?tab=readme-ov-file)
 
 #### Complementos
 
