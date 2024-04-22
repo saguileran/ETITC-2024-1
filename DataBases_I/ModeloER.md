@@ -115,7 +115,41 @@ Diagrama ejemplo de la base de datos relacional world
 
 El Modelo Entidad-Relación es una herramienta fundamental en el diseño de bases de datos, que permite a los desarrolladores conceptualizar y visualizar la estructura de un sistema de base de datos. Comprender los conceptos básicos, características, elementos y requisitos del modelo E/R es esencial para diseñar bases de datos eficientes y efectivas. Mediante ejemplos de la base de datos "world", los estudiantes pueden aplicar estos conceptos en escenarios del mundo real y adquirir experiencia práctica en modelado y diseño de bases de datos.
 
-## Ejercicio: Creación del Diagrama de Entidad-Relación para la Base de Datos "mydb"**
+En resumen, establecer una relación entre tablas implica ciertos requisitos para garantizar la integridad y consistencia de los datos. Aquí tienes una explicación detallada de los principales requisitos:
+
+1. **Campo(s) Común(es):**
+   - Una relación entre tablas se basa en uno o más campos comunes que existen en ambas tablas.
+   - Estos campos comunes sirven como base para vincular los registros en una tabla con los registros correspondientes en otra tabla.
+   - Por ejemplo, si tienes una tabla de "Empleados" y una tabla de "Departamentos", un campo común como "IDDepartamento" puede existir en ambas tablas para establecer una relación entre ellas.
+
+2. **Compatibilidad de Tipo de Datos:**
+   - Los tipos de datos de los campos comunes en las tablas relacionadas deben ser compatibles para garantizar comparaciones y coincidencias precisas.
+   - Por ejemplo, si una tabla tiene un campo de tipo ENTERO para ID, el campo correspondiente de la tabla relacionada también debería ser de tipo ENTERO para una comparación adecuada.
+
+3. **Integridad Referencial:**
+   - La integridad referencial garantiza que se mantengan las relaciones entre tablas y que los datos permanezcan consistentes.
+   - Esto se suele hacer mediante el uso de claves externas, que son referencias a las claves primarias de las tablas relacionadas.
+   - Por ejemplo, en una relación uno a muchos entre "Pedidos" y "Clientes", el campo "IDCliente" en la tabla "Pedidos" sería una clave externa que hace referencia a la clave primaria "IDCliente" en la tabla "Clientes".
+
+4. **Relación de Clave Primaria-Clave Externa:**
+   - Las relaciones suelen establecerse utilizando pares de clave primaria-clave externa.
+   - La clave primaria de una tabla se convierte en una clave externa en otra tabla para establecer la relación.
+   - Por ejemplo, en una relación uno a muchos entre "Pedidos" y "Clientes", el campo "IDCliente" en la tabla "Pedidos" sería la clave externa que hace referencia a la clave primaria "IDCliente" en la tabla "Clientes".
+
+5. **Cardinalidad:**
+   - La cardinalidad define la naturaleza y multiplicidad de la relación entre tablas, indicando cuántas instancias de una entidad pueden estar asociadas con las instancias de otra entidad.
+   - Ayuda a determinar si la relación es uno a uno, uno a muchos o muchos a muchos.
+   - Por ejemplo, una relación uno a muchos entre "Clientes" y "Pedidos" significa que un cliente puede realizar múltiples pedidos, pero cada pedido pertenece a un solo cliente.
+
+6. **Participación:**
+   - La participación especifica si cada entidad en la relación debe tener una entidad correspondiente en la tabla relacionada.
+   - Puede ser participación total (obligatoria) o parcial (opcional).
+   - Por ejemplo, en una relación uno a muchos obligatoria entre "Departamentos" y "Empleados", cada empleado debe pertenecer a un departamento, asegurando una participación total.
+
+Al cumplir con estos requisitos, estableces relaciones significativas y confiables entre tablas en un modelo de base de datos relacional, lo que permite una gestión eficiente de los datos y su recuperación mientras se mantiene la integridad de los datos.
+
+
+## Ejercicio: Creación del Diagrama de Entidad-Relación para la Base de Datos "mydb"
 
 Este ejercicio consiste en crear un diagrama de entidad-relación (ER) para la base de datos **etitc** que consista en cuatro tablas, cada una conteniendo más de cuatro atributos. Para poblar (llenar) la tabla utiliza chatGPT. Utiliza la ingeniería inversa para generar el esquema de la base de datos a partir del diagrama utilizando MySQL Workbench.
 
@@ -167,6 +201,11 @@ Selecciona y dibuja 3 relaciones de uno a muchos y 3 relaciones de muchos a much
 3. Captura de pantalla de verificación que muestre el esquema generado en MySQL Workbench. Como el que se solicito en el parcial.
 
 **Nota:** Asegúrate de que las relaciones y atributos estén definidos adecuadamente en el diagrama ER, y que el proceso de ingeniería inversa traduzca con precisión el diagrama en un esquema de base de datos MySQL.
+
+## Trabajo para casa
+
+Realicen los mismos ejercicios planteados en la anterior sección. [Ejercicio: Creación del Diagrama de Entidad-Relación para la Base de Datos "mydb"](#ejercicio-creación-del-diagrama-de-entidad-relación-para-la-base-de-datos-mydb) pero utilizando la base de datos que han venido creando.
+
 
 ## Referencias
 
