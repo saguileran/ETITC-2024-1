@@ -82,48 +82,75 @@ La estructura de carpetas para desplegar aplicaciones web en Tomcat generalmente
    - Accede a la página de bienvenida de Tomcat en tu navegador web.
   
    En Windows esta instalación es sencilla y rápida pero vamos a relizarla en linux, para ello sigan el tutorial [How To Install Apache Tomcat 10 on Ubuntu 20.04](https://www.digitalocean.com/community/tutorials/how-to-install-apache-tomcat-10-on-ubuntu-20-04). Lo único que deben modificar es el enlace de la descargar, utilicen este:
-```bash
-wget https://dlcdn.apache.org/tomcat/tomcat-10/v10.1.20/bin/apache-tomcat-10.1.20.tar.gz
-```
 
-Como ejercicio adicional cambia al puerto 8081.
+   ```bash
+   wget https://dlcdn.apache.org/tomcat/tomcat-10/v10.1.20/bin/apache-tomcat-10.1.20.tar.gz
+   ```
+
+   Como ejercicio adicional cambia al puerto 8081, si gustan pueden dejarlo en este puerto o  cambiarlo al que viene por defecto.
 
 2. **Despliegue de una Aplicación:**
-   - Crea una aplicación web simple (por ejemplo, una aplicación JSP que muestre "¡Hola, Mundo!"). El código ejemplo lo pueden sacar de `http://localhost:8080/examples/servlets/`, sin embargo realizaremos el tutorial <br> <br> 
+   
+   Crea una aplicación web simple (por ejemplo, una aplicación usando servlets que muestre "¡Hola, Mundo!"). El código ejemplo lo pueden sacar de `http://localhost:8080/examples/servlets/`, sin embargo realizaremos el tutorial <br> <br> 
    
    [![Watch the video](img/video_tomcat.png)](https://www.youtube.com/watch?v=6yyZsEfOEu4)
 
-   - Empaqueta la aplicación en un archivo .war.
-    ```bash
-    jar -cvf my_web_app.war *
-    ```
-   - Copia el archivo .war a el directorio `webapps` de tu instalación de Tomcat.
+   Recuerden que existen dos pasos para la creación de una aplicación: 
+   
+   1. **Despliegue (deploy):** 
+   
+      Se crea la estrcutura de la página web, todas las carpetas que deben ir y los archivos xml. Para esta parte pueden seguir el tutorial que tiene tomcat, [Development Processes - Tomcat 10](https://tomcat.apache.org/tomcat-10.0-doc/appdev/processes.html).
 
-   - Accede a la aplicación desplegada en tu navegador web utilizando la URL correspondiente (por ejemplo, `http://localhost:8082/myapp`).
+   2. **Adición de Servlets:** 
+   
+      Se agregan y ejecutan códigos de java con servlets y se configuran estos servlets en el archivo `web.xml`. Pueden seguir el tutorial [Java Server-Side Programming - ntu](https://www3.ntu.edu.sg/home/ehchua/programming/java/JavaServlets.html) para crear los primeros servlets en la página web. Recuerden que el código que deben usar para compilar los códigos de java es:
 
-3. **Exploración de Archivos de Aplicación:**
+      ```bash
+      javac -classpath /opt/tomcat/lib/servlet-api.jar -d path_to/classes/ WEB-INF/src/mypkg/EchoServlet.java
+      ```
+
+      Si lo ejecutaron correctamente debe aparecer un nuevo archito tipo java class en la carpeta `classes`.
+
+3. **Empaquetamiento de la aplicación:** 
+
+   Ahora, el siguiente paso es empaquetar la aplicación en un archivo war con el fin de poder compartirla de forma simple y sencilla. Para ello, estando en la carpeta de la aplicación (`/opt/tomcat/webapps/my_web_app`) ejecuten el siguiente comando
+
+   ```bash
+   jar -cvf my_web_app.war *
+   ```
+
+4. **Exploración de Archivos de Aplicación:**
+
    - Navega al directorio donde se desplegó la aplicación (`webapps/myapp`).
    - Explora el contenido del archivo .war, incluido el directorio `WEB-INF` y su contenido.
+   - Implementar su estructura y contenido en tu aplicación.
 
 4. **Personaliza el contenido:**
-   - Agrega el contenido html de la carta.
+
+- Agrega el contenido html, css, y de js de la carta utilizando git.
 
 5. **Descarga y despliega un .war file:**
-   - Descarga alguno de los siguientes:
-     - [Sample war file - VIU.ca](http://csci.viu.ca/~barskym/teaching/DM2012/labs/LAB6/SampleApp.html)
-     - [Sample Application - Tomcat](https://tomcat.apache.org/tomcat-7.0-doc/appdev/sample/)
-     - [Example Hello World WAR-File](https://github.com/aeimer/java-example-helloworld-war?tab=readme-ov-file)
 
-   Adicionalmente busca un war file e intenta desplegarlo.
+- Descarga alguno de los siguientes archivos war:
+   - [Sample war file - VIU.ca](http://csci.viu.ca/~barskym/teaching/DM2012/labs/LAB6/SampleApp.html)
+   - [Sample Application - Tomcat](https://tomcat.apache.org/tomcat-7.0-doc/appdev/sample/)
+   - [Example Hello World WAR-File](https://github.com/aeimer/java-example-helloworld-war?tab=readme-ov-file)
 
-6. **La nueva era de Python - Django:** 
+- Buscar un archivo war y desplegarlo.
 
-   Sigue el tutorial [Writing your first Django app, part 1](https://docs.djangoproject.com/en/5.0/intro/tutorial01/).
+6. **La nueva era: Django - Python:** 
 
-Revisen el capítulo 3 del libro guia Nicholas S. Williams - Professional Java for Web Applications.
+   Sigue el tutorial para el despliegue del servidor, [Writing your first Django app, part 1](https://docs.djangoproject.com/en/5.0/intro/tutorial01/), y agrega una aplicación al servidor.
 
-**Conclusión**
+Revisen el capítulo 3 del libro guia Professional Java for Web Applications de Nicholas S. Williams por si tienen dudas o quieren profundizar en los temas.
+
+#### Conclusión
 Este ejercicio práctico proporciona experiencia práctica con Apache Tomcat, cubriendo la configuración básica, el despliegue de aplicaciones y el trabajo con archivos de aplicación. Experimentar con estos conceptos mejorará tu comprensión del desarrollo de aplicaciones web utilizando Tomcat.
+
+## Ejercicio: Creación de aplicación 
+
+El trabajo para la casa es terminar
+
 
 ## Referencias
 
@@ -140,3 +167,9 @@ Este ejercicio práctico proporciona experiencia práctica con Apache Tomcat, cu
 - [Professional-Java-for-Web-Applications](https://github.com/sergiy-naumovych/Professional-Java-for-Web-Applications)
 - [3. DEPLOYMENT ORGANIZATION](https://tomcat.apache.org/tomcat-3.2-doc/appdev/deployment.html)
 - [Java Webapps Tutorial](https://cs.lmu.edu/~ray/notes/jw/)
+
+
+
+
+
+cut -d: -f1 /etc/passwd
