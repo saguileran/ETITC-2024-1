@@ -149,7 +149,7 @@ Este ejercicio práctico proporciona experiencia práctica con Apache Tomcat, cu
 
 ## Ejercicio: Creación de aplicación 
 
-El trabajo para la casa es terminar
+El trabajo para la casa es terminar el tutorial y agregar algunos servlets
 
 
 ## Referencias
