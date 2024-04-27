@@ -179,9 +179,3 @@ Además, anexen el archivo war generado y si hacen lo de django pantallazos de q
 - [Professional-Java-for-Web-Applications](https://github.com/sergiy-naumovych/Professional-Java-for-Web-Applications)
 - [3. DEPLOYMENT ORGANIZATION](https://tomcat.apache.org/tomcat-3.2-doc/appdev/deployment.html)
 - [Java Webapps Tutorial](https://cs.lmu.edu/~ray/notes/jw/)
-
-
-
-
-
-cut -d: -f1 /etc/passwd
