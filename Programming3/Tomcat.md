@@ -149,7 +149,7 @@ Este ejercicio práctico proporciona experiencia práctica con Apache Tomcat, cu
 
 ## Ejercicio: Creación de aplicación 
 
-1. Terminar el tutorial [Development Processes - Tomcat 10](https://tomcat.apache.org/tomcat-10.0-doc/appdev/processes.html) hasta el capítulo 4, recuerden que no es solo copiar y pegar códigos sino también leer las intrucciones y explicaciones.
+1. Terminar el tutorial [Java Server-Side Programming - ntu](https://www3.ntu.edu.sg/home/ehchua/programming/java/JavaServlets.html) hasta el capítulo 4, recuerden que no es solo copiar y pegar códigos sino también leer las intrucciones y explicaciones.
 2. Agregar, adecuar, y modificar los servlets del repositorio [basic-servlet-example](https://github.com/jgpreetham/basic-servlet-example) a nuestra webpp HelloServlet. Todos los enlaces que estan en el index deben funcionar.
 3. Empaquetar la aplicación utilizando el comando `jar` como se mostró en la anterior sección, aqui crearan un archivo terminado en war.
 4. Desplieguen el archivo war pero primero cambienle el nombre y agreguenle al que ya tiene algo como _1, es decir, de *myapp* pasaria a *myapp_1*. Con eso crearan una nueva webapp y no sobreescribiran la que ya tienen.
