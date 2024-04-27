@@ -88,6 +88,14 @@ Para este ejercicio utilizaremos la guia [MySQL Transactions](https://www.mysqlt
 
 Realizen el mismo tutorial pero utilizando su propia base de datos.
 
+### Entregables  
+
+- 
+-
+-
+
+
+
 ## Conclusión
 Al completar esta lección, los estudiantes tendrán un sólido entendimiento de la programación Transact-SQL (T-SQL) con MySQL. Estarán familiarizados con los elementos básicos y avanzados de T-SQL, así como con las formas de escribir y ejecutar scripts T-SQL en entornos MySQL. Esta habilidad es esencial para cualquier desarrollador o administrador de bases de datos que trabaje con MySQL en la industria.
 

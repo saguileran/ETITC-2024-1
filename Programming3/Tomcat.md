@@ -149,8 +149,20 @@ Este ejercicio práctico proporciona experiencia práctica con Apache Tomcat, cu
 
 ## Ejercicio: Creación de aplicación 
 
-El trabajo para la casa es terminar el tutorial y agregar algunos servlets
+1. Terminar el tutorial [Development Processes - Tomcat 10](https://tomcat.apache.org/tomcat-10.0-doc/appdev/processes.html) hasta el capítulo 4, recuerden que no es solo copiar y pegar códigos sino también leer las intrucciones y explicaciones.
+2. Agregar, adecuar, y modificar los servlets del repositorio [basic-servlet-example](https://github.com/jgpreetham/basic-servlet-example) a nuestra webpp HelloServlet. Todos los enlaces que estan en el index deben funcionar.
+3. Empaquetar la aplicación utilizando el comando `jar` como se mostró en la anterior sección, aqui crearan un archivo terminado en war.
+4. Desplieguen el archivo war pero primero cambienle el nombre y agreguenle al que ya tiene algo como _1, es decir, de *myapp* pasaria a *myapp_1*. Con eso crearan una nueva webapp y no sobreescribiran la que ya tienen.
+5. Parados en la carpeta del webapp, `/opt/tomcat/webapps/myapp/`, clonen el repositorio de la carta. Esto creara una nueva carpeta que podran visualizar desde el navegador.
+6. (Opcional) Completen los tutoriales de Django, hacer la parte [part 2](https://docs.djangoproject.com/en/5.0/intro/tutorial02/) y la parte [part 3](https://docs.djangoproject.com/en/5.0/intro/tutorial03/).
 
+### Entregrables
+
+Entreguen un archivo de word con pantallazo de cada paso, que se note que funciona bien el Tomcat y que además pueden ingresar al Host Manager y a Manager App con los usuarios que crearon (anexen pantallazo donde se vea que estan ingresando con ese usuario). **Cada pantallazo debe de mostrar que es su imagen y no la de alguien más**, para ello pueden subir el pantallazo con la camara prendida, o con una pestañana donde esten en el correo institucional, o algo por el estilo que los logre identificar.
+
+Además, anexen el archivo war generado y si hacen lo de django pantallazos de que les funciono, recuerden que esto último es opcional y a quienes lo hagan se les dara puntos extra.
+
+**Resumen:** Un archivo de word y un archivo .war.
 
 ## Referencias
 
