@@ -67,7 +67,64 @@ Para ejecutar los códigos de T-SQL, utilizaremos las mismas herramientas que he
 
 Aunque no son los únicos que existen, nuestro objetivo es especializarnos en el uso de estas dos herramientas. Ya aprendido lo básico utilizar otro motor o herramienta involucra una curva de aprendizaje para la herramienta pero no para el lenguaje de programación SQL.
 
-## 5. Ejercicio Práctico
+## 5. Programación de Transacciones
+
+<p float="left" style="text-align:center">
+  <img src="img/Figure17.algo.png" height="150" />
+  <img src="img/Figure17.algo1.png" height="150" />
+</p>
+
+
+#### Sequencial
+
+<p float="left" style="text-align:center">
+  <img src="img/Figure17.2.png" width="500" />
+</p>
+
+<p float="left" style="text-align:center">
+  <img src="img/Figure17.3.png" width="500" />
+</p>
+
+
+#### Concurrentes 
+
+<p float="left" style="text-align:center">
+  <img src="img/Figure17.4.png" width="500" />
+</p>
+
+<p float="left" style="text-align:center">
+  <img src="img/Figure17.5.png" width="500" />
+</p>
+
+<p float="left" style="text-align:center">
+  <img src="img/Figure17.6.png" width="500" />
+</p>
+
+#### Equivalentes
+
+<p float="left" style="text-align:center">
+  <img src="img/Figure17.7.png" width="500" />
+</p>
+
+<p float="left" style="text-align:center">
+  <img src="img/Figure17.8.png" width="500" />
+</p>
+
+#### Recuperables y no Recuperables
+
+<p float="left" style="text-align:center">
+  <img src="img/Figure17.13.png" width="200" />
+</p>
+
+<p float="left" style="text-align:center">
+  <img src="img/Figure17.14.png" width="500" />
+</p>
+
+<p float="left" style="text-align:center">
+  <img src="img/Figure17.15.png" width="500" />
+</p>
+
+## Ejercicio Práctico
 
    - **Configuración de la Base de Datos:**
      - Crear una nueva base de datos MySQL llamada "banks" utilizando MySQL Workbench.
@@ -86,14 +143,7 @@ Para este ejercicio utilizaremos la guia [MySQL Transactions](https://www.mysqlt
 
 ## Ejercicio Casa
 
-Realizen el mismo tutorial pero utilizando su propia base de datos.
-
-### Entregables  
-
-- 
--
--
-
+Realizen el mismo tutorial pero utilizando su propia base de datos. Deben entregar los códigos sql que escribieron.
 
 
 ## Conclusión
