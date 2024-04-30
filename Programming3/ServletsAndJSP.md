@@ -165,3 +165,4 @@ Las JavaServer Pages (JSP) proporcionan una forma poderosa de crear páginas web
 - [JSP-Tutorial](https://github.com/RameshMF/JSP-Tutorial?tab=readme-ov-file)
 - [jsp-servlet-example](https://github.com/yotammadem/jsp-servlet-example)
 - [SimpleJspWebsite](https://github.com/pH-7/SimpleJspWebsite)
+- [simple-servlet](https://github.com/ExeterBScDTS/simple-servlet)
