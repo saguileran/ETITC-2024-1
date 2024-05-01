@@ -130,20 +130,34 @@ Aunque no son los únicos que existen, nuestro objetivo es especializarnos en el
      - Crear una nueva base de datos MySQL llamada "banks" utilizando MySQL Workbench.
    - **Creación de Tablas y Datos de Muestra:**
      - Escribir scripts T-SQL para crear tablas que gestionen la información de los usuarios, cuentas y transacciones.
-     - Insertar datos de muestra en las tablas utilizando instrucciones INSERT.
+     - Insertar datos de muestra en las tablas utilizando instrucciones `INSERT`. Los datos los pueden generar de con ChatGPT entonces agreguen 5 datos más a las tablas.
    - **Consultas y Manipulación de Datos:**
      - Escribir consultas T-SQL para recuperar información específica de la base de datos, como el número de transacciones por usuarios.
-     - Realizar operaciones de manipulación de datos, como actualizaciones y eliminaciones, utilizando instrucciones UPDATE y DELETE.
+     - Realizar operaciones de manipulación de datos, como actualizaciones y eliminaciones, utilizando instrucciones `UPDATE` y `DELETE`.
    - **Procedimientos Almacenados:**
      - Crear procedimientos almacenados para realizar tareas específicas, como calcular el balance promedio de los usuarios.
    - **Manejo de Errores:**
      - Implementar manejo de errores en los scripts T-SQL para garantizar la robustez de las operaciones de base de datos.
 
-Para este ejercicio utilizaremos la guia [MySQL Transactions](https://www.mysqltutorial.org/mysql-stored-procedure/mysql-transactions/) o [MySQL Transaction](https://www.javatpoint.com/mysql-transaction). Respecto a el último punto, manejo de errores, seguiremos alguno de los siguientes tutoriales: [TRY...CATCH (Transact-SQL)](https://learn.microsoft.com/en-us/sql/t-sql/language-elements/try-catch-transact-sql?view=sql-server-ver16) o [How to implement error handling in SQL Server](https://www.sqlshack.com/how-to-implement-error-handling-in-sql-server/).
+Para este ejercicio utilizaremos la guia [MySQL Transactions](https://www.mysqltutorial.org/mysql-stored-procedure/mysql-transactions/) y pueden complementar con la guia [MySQL Transaction](https://www.javatpoint.com/mysql-transaction), sobre todo para la parte de hacer calculos (esta mejor explicada alli). Respecto a el último punto, manejo de errores, seguiremos alguno de los siguientes tutoriales: [TRY...CATCH (Transact-SQL)](https://learn.microsoft.com/en-us/sql/t-sql/language-elements/try-catch-transact-sql?view=sql-server-ver16) o [How to implement error handling in SQL Server](https://www.sqlshack.com/how-to-implement-error-handling-in-sql-server/).
 
 ## Ejercicio Casa
 
-Realizen el mismo tutorial pero utilizando su propia base de datos. Deben entregar los códigos sql que escribieron.
+Realizen el mismo tutorial pero utilizando su propia base de datos. 
+
+**Entregables:** Deben entregar dos archivos sql: el del tutorial y otro del tutorial aplicado a su base de datos. Cómo el tutorial es bastante simple agreguen registros y atributos, pueden utilizar chatGPT.
+
+Los archivos seran en código sql y utilicen comentarios para seccionar los puntos
+
+```sql
+#--------------------------- primer punto -----------------------
+...
+...
+#--------------------------- segundo punto -----------------------
+...
+...
+...
+```
 
 
 ## Conclusión

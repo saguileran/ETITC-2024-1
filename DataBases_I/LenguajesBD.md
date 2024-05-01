@@ -171,8 +171,21 @@ En este ejercicio, aplicaremos los conceptos de los diferentes tipos de lenguaje
 
 ## Ejercicio para Casa
 
-Implementación de cada comando de la sección 2 a la 5 (`INSERT`, `UPDATE`, `START`, etc) utilizando su propia base de datos.
+Implementación de cada comando de la sección 2 a la 5 (`INSERT`, `UPDATE`, `START`, etc) utilizando su propia base de datos. Cómo el tutorial es bastante simple agreguen registros y atributos, pueden utilizar chatGPT.
 
+**Entregables:** Dos archivos sql con los códigos comentados por punto, un archivo sql para  el ejercicio práctico y otro para su base de datos. 
+
+
+
+```sql
+#--------------------------- primer punto -----------------------
+...
+...
+#--------------------------- segundo punto -----------------------
+...
+...
+...
+```
 ## Referencias
 
 ### Libros

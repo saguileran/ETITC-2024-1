@@ -95,14 +95,20 @@ Crea una tabla con chatGPT con más tuplas y atributos como la tabla en [Descrip
 
 ## Ejercicio para casa
 
-Utiliza estos mismo conceptos en tu propia base de datos.
+Utiliza estos mismo conceptos en tu propia base de datos. Si la base tiene muchas tuplas y atributos  pueden limitarse a algo como 6 o 7 atributos y unas 20 tuplas. Recuerden que esas tuplas deben presentar datos redundantes.
+
+**Entregables:** Dos archivos de excel con tres hojas cada uno. Uno para la guia ejemplo de clase terminada y la otra para la aplicación de las reglas de normalización a su base de datos, cada hoja es aplicando una regla de normalización.
 
 ## Referencias
 
-#### Básicas
+#### Libros 
 
 - Thomas Pettit y Scott Cosentino, *The MySQL Workshop: A practical guide to working with data and managing databases with MySQL*. Packt Publishing, 2022. Capítulo Normalization, página 19; Apendix, página 632.
 - Ramez Elmasri y Shamkant B. Navathe. *Fundamentals of Database Systems*. Pearson, 2015. Capítulo 14, página 490. 
+
+
+#### Básicas
+
 - [Description of the database normalization basics](https://learn.microsoft.com/en-us/office/troubleshoot/access/database-normalization-description)
 - [9.1.2.1 Color Key for EER Diagrams](https://dev.mysql.com/doc/workbench/en/wb-eer-color-key.html) y [9.1.3.2 Adding Tables to an EER Diagram](https://dev.mysql.com/doc/workbench/en/wb-using-table-tool.html)
 - [The-MySQL-Workshop](https://github.com/PacktWorkshops/The-MySQL-Workshop/tree/master)
