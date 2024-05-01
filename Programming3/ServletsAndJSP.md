@@ -10,7 +10,7 @@ Los Servlets son clases Java utilizadas para extender las capacidades de los ser
 Antes de escribir servlets, asegúrate de tener:
 - Java Development Kit (JDK) instalado.
 - Un contenedor de servlets como Apache Tomcat, Jetty o GlassFish.
-- Un Entorno de Desarrollo Integrado (IDE) como Eclipse, IntelliJ IDEA o NetBeans.
+- Un Entorno de Desarrollo Integrado (IDE) como Eclipse, IntelliJ IDEA o NetBeans. O en nuestro caso via terminal.
 
 ### 3. Escribir tu Primer Servlet
 Creemos un simple "HelloWorldServlet" para entender los conceptos básicos.
@@ -52,9 +52,13 @@ Para configurar un servlet, necesitas crear un archivo de descriptor de desplieg
 ### 5. Ciclo de Vida del Servlet
 Los Servlets siguen un ciclo de vida que consta de tres etapas principales: inicialización, manejo de solicitudes y destrucción. Este ciclo de vida es gestionado por el contenedor de servlets.
 
-- **Inicialización:** El contenedor de servlets carga la clase del servlet y llama a su método `init()`.
-- **Manejo de Solicitudes:** Para cada solicitud del cliente, el contenedor de servlets invoca el método `service()`, que a su vez llama a `doGet()`, `doPost()`, etc., según el método HTTP utilizado.
-- **Destrucción:** Cuando el contenedor de servlets se apaga o decide descargar el servlet, llama al método `destroy()`.
+1. **Inicialización:** El contenedor de servlets carga la clase del servlet y llama a su método `init()`.
+2. **Manejo de Solicitudes:** Para cada solicitud del cliente, el contenedor de servlets invoca el método `service()`, que a su vez llama a `doGet()`, `doPost()`, etc., según el método HTTP utilizado.
+3. **Destrucción:** Cuando el contenedor de servlets se apaga o decide descargar el servlet, llama al método `destroy()`.
+
+<p float="left" style="text-align:center">
+  <img src="img/servlet-diag.gif" width="500" />
+</p>
 
 ### 6. Manejo de Solicitudes y Respuestas HTTP
 Los Servlets pueden manejar varios métodos HTTP como GET, POST, PUT, DELETE, etc., y generar contenido dinámico basado en las solicitudes de los usuarios.
@@ -94,9 +98,9 @@ Las JavaServer Pages (JSP) son una tecnología utilizada para crear páginas web
 
 ### 2. Configuración del Entorno JSP
 Antes de trabajar con JSP, asegúrate de tener:
-- Java Development Kit (JDK) instalado.
+- Java Development Kit (JDK) instalado, "es lo mismo que openjdk".
 - Un contenedor de servlets como Apache Tomcat, Jetty o GlassFish.
-- Un Entorno de Desarrollo Integrado (IDE) como Eclipse, IntelliJ IDEA o NetBeans.
+- Un Entorno de Desarrollo Integrado (IDE) como Eclipse, IntelliJ IDEA o NetBeans. O en nuestro caso la terminal.
 
 ### 3. Escribir tu Primer JSP
 Creemos una página simple "HelloWorld.jsp" para entender los conceptos básicos.
@@ -116,6 +120,8 @@ Creemos una página simple "HelloWorld.jsp" para entender los conceptos básicos
 </html>
 ```
 
+Recuerden que nuestra guia prinpical sera [Getting started with JSP by Examples - ntu](https://www3.ntu.edu.sg/home/ehchua/programming/java/JSPByExample.html).
+
 ### 4. Directivas JSP
 Las directivas JSP proporcionan instrucciones al contenedor sobre el archivo JSP y cómo debe ser procesado. Hay tres tipos principales de directivas:
 - **Directiva de Página:** Define atributos y configuraciones específicos de la página.
@@ -124,6 +130,9 @@ Las directivas JSP proporcionan instrucciones al contenedor sobre el archivo JSP
 
 ### 5. Elementos de Scripting en JSP
 JSP permite incrustar código Java directamente en la página HTML mediante elementos de scripting. Hay tres tipos de elementos de scripting:
+
+- **Directivas:**: Encerradas entre etiquetas `<%@page|include ... %>` y utilizados para dar indicaciones al motor de JSP.
+- **Comentarios:** Encerrados entre etiquetas `<%-- -->` y utilizados para agregar comentarios.
 - **Scriptlets:** Encerrados entre etiquetas `<% %>` y utilizados para escribir código Java.
 - **Expresiones:** Encerradas entre etiquetas `<%= %>` y utilizadas para evaluar y mostrar expresiones.
 - **Declaraciones:** Encerradas entre etiquetas `<%! %>` y utilizadas para declarar variables y métodos.
@@ -141,6 +150,15 @@ JSP proporciona un conjunto de objetos predefinidos conocidos como objetos impl�
 - `response`: Representa la respuesta del servidor al cliente.
 - `session`: Representa la sesión del usuario.
 - `out`: Representa el flujo de salida para escribir contenido en el navegador del cliente.
+
+### 8. Ciclo de Vida de JSP
+
+<p float="left" style="text-align:center">
+  <img src="img/JSP_file_cycle.png" width="500" />
+  <img src="img/jsp.png" width="500" />
+</p>
+
+
 
 ### Conclusión
 Las JavaServer Pages (JSP) proporcionan una forma poderosa de crear páginas web dinámicas mediante la combinación de HTML con código Java. Comprender los fundamentos de JSP, incluidas las directivas, los elementos de scripting, las acciones estándar y los objetos implícitos, es esencial para construir aplicaciones web robustas e interactivas. Practica escribir páginas JSP y explora características avanzadas para mejorar tus habilidades en el desarrollo web.
