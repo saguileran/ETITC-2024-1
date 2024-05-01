@@ -157,6 +157,26 @@ Este ejercicio práctico proporciona experiencia práctica con Apache Tomcat, cu
 5. Parados en la carpeta del webapp, `/opt/tomcat/webapps/myapp/`, clonen el repositorio de la carta. Esto creara una nueva carpeta que podran visualizar desde el navegador.
 6. (Opcional) Completen los tutoriales de Django, hacer la parte [part 2](https://docs.djangoproject.com/en/5.0/intro/tutorial02/) y la parte [part 3](https://docs.djangoproject.com/en/5.0/intro/tutorial03/).
 
+
+Les sugieron que creen un respositorio y vayan subiendo las cosas allí, así si tienen un problema o aparece un daño pueden deolver a una versión antigua y no fan a sufrir. Lo pueden hacer via terminal o usando la extensión de visual studio code (vsc). Si lo hacen desde vsc accedan a su cuenta de git desde el icono de perfil que esta en la parte inferior izquierda; si lo hacen desde terminal deben de registrar su usuario y correo
+
+```bash
+git config --global user.name "John Doe"
+git config --global user.email johndoe@example.com
+```
+
+Para hacer los comentarios y subir la información van a utilizar los siguientes comandos, deben estar en la carpeta del repositorio.
+
+```bash
+git pull                               # actualiza el repositorio local en caso de que existan cambios
+git add .                              # agregar todos (.) los cambios
+git commit -m "agregan un comentario"  # agregar un comentario
+git push                               # envia toda la información a github
+```
+
+Aca les dejo una guia por si tienen dudas [git - la guía sencilla
+](https://rogerdudler.github.io/git-guide/index.es.html). Si les pone algún problema usen `git push origin master` como aparece en la guia.
+
 ### Entregrables
 
 Entreguen un archivo de word con pantallazo de cada paso, que se note que funciona bien el Tomcat y que además pueden ingresar al Host Manager y a Manager App con los usuarios que crearon (anexen pantallazo donde se vea que estan ingresando con ese usuario). **Cada pantallazo debe de mostrar que es su imagen y no la de alguien más**, para ello pueden subir el pantallazo con la camara prendida, o con una pestañana donde esten en el correo institucional, o algo por el estilo que los logre identificar.
