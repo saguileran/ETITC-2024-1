@@ -106,7 +106,7 @@ La estructura de carpetas para desplegar aplicaciones web en Tomcat generalmente
       Se agregan y ejecutan códigos de java con servlets y se configuran estos servlets en el archivo `web.xml`. Pueden seguir el tutorial [Java Server-Side Programming - ntu](https://www3.ntu.edu.sg/home/ehchua/programming/java/JavaServlets.html) para crear los primeros servlets en la página web. Recuerden que el código que deben usar para compilar los códigos de java es:
 
       ```bash
-      javac -classpath /opt/tomcat/lib/servlet-api.jar -d path_to/classes/ WEB-INF/src/mypkg/EchoServlet.java
+      javac -cp /opt/tomcat/lib/servlet-api.jar -d path_to/classes/ WEB-INF/src/mypkg/EchoServlet.java
       ```
 
       Si lo ejecutaron correctamente debe aparecer un nuevo archito tipo java class en la carpeta `classes`.
@@ -149,7 +149,8 @@ Este ejercicio práctico proporciona experiencia práctica con Apache Tomcat, cu
 
 ## Ejercicio: Creación de aplicación 
 
-1. Terminar el tutorial [Java Server-Side Programming - ntu](https://www3.ntu.edu.sg/home/ehchua/programming/java/JavaServlets.html) hasta el capítulo 4, recuerden que no es solo copiar y pegar códigos sino también leer las intrucciones y explicaciones.
+0. Copiar la carta a la carpeta raiz de la aplicación organizando los archivos según la estrctura del primer capítulo de la guia en el siguiente punto. 
+1. Quienes ya hicieron el tutorial pueden subir lo que ya hicieron o si quieren hacer el nuevo tutorial que es más completo [Java Server-Side Programming - ntu](https://www3.ntu.edu.sg/home/ehchua/programming/java/JavaServlets.html), desarollen los primeros 5 capítulos, **lean las intrucciones y explicaciones**. El error que les va a salir al compilar los archivos es por la versión de java que ellos tienen, los códigos en nuestra version de java estan en la carpeta [códigos](./codigos).
 2. Agregar, adecuar, y modificar los servlets del repositorio [basic-servlet-example](https://github.com/jgpreetham/basic-servlet-example) a nuestra webpp HelloServlet. Todos los enlaces que estan en el index deben funcionar.
 3. Empaquetar la aplicación utilizando el comando `jar` como se mostró en la anterior sección, aqui crearan un archivo terminado en war.
 4. Desplieguen el archivo war pero primero cambienle el nombre y agreguenle al que ya tiene algo como _1, es decir, de *myapp* pasaria a *myapp_1*. Con eso crearan una nueva webapp y no sobreescribiran la que ya tienen.
