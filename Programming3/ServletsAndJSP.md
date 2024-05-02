@@ -120,7 +120,8 @@ Creemos una página simple "HelloWorld.jsp" para entender los conceptos básicos
 </html>
 ```
 
-Recuerden que nuestra guia prinpical sera [Getting started with JSP by Examples - ntu](https://www3.ntu.edu.sg/home/ehchua/programming/java/JSPByExample.html).
+Recuerden que nuestra guia prinpical sera [Getting started with JSP by Examples - ntu](https://www3.ntu.edu.sg/home/ehchua/programming/java/JSPByExample.html), si quieren profundizar más en el tema pueden visitar la guia [Java Server-Side Programming
+JavaServer Pages (JSP) (1.2 and 2.0)](https://www3.ntu.edu.sg/home/ehchua/programming/java/JavaServerPages.html).
 
 ### 4. Directivas JSP
 Las directivas JSP proporcionan instrucciones al contenedor sobre el archivo JSP y cómo debe ser procesado. Hay tres tipos principales de directivas:
@@ -151,13 +152,18 @@ JSP proporciona un conjunto de objetos predefinidos conocidos como objetos impl�
 - `session`: Representa la sesión del usuario.
 - `out`: Representa el flujo de salida para escribir contenido en el navegador del cliente.
 
+<p float="left" style="text-align:center">
+  <img src="img/jsp_objects.png" width="500" />
+</p>
+
+Imagen tomada de [JSP Implicit Objects – Syntax and Examples](https://data-flair.training/blogs/jsp-implicit-objects/).
+
 ### 8. Ciclo de Vida de JSP
 
 <p float="left" style="text-align:center">
   <img src="img/JSP_file_cycle.png" width="500" />
   <img src="img/jsp.png" width="500" />
 </p>
-
 
 
 ### Conclusión
@@ -184,3 +190,4 @@ Las JavaServer Pages (JSP) proporcionan una forma poderosa de crear páginas web
 - [jsp-servlet-example](https://github.com/yotammadem/jsp-servlet-example)
 - [SimpleJspWebsite](https://github.com/pH-7/SimpleJspWebsite)
 - [simple-servlet](https://github.com/ExeterBScDTS/simple-servlet)
+- [servletjspexamples](https://github.com/gaje85/servletjspexamples/tree/master)
