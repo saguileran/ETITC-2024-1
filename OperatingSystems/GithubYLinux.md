@@ -30,13 +30,7 @@ Aprender a instalar y manejar Apache es importante y vale la pena porque te perm
 
 Instalen apache siguiendo el tutorial oficial de ubuntu, [Install and Configure Apache](https://ubuntu.com/tutorials/install-and-configure-apache#1-overview).
 
-## 5. Instalación de un Servidor de Aplicaciones (Tomcat)
-
-Aprender a instalar y utilizar Apache Tomcat es valioso por varias razones. Tomcat es una plataforma flexible y potente para desarrollar y desplegar aplicaciones web en Java. Su compatibilidad con las especificaciones de Java EE lo hace ideal para proyectos que utilizan tecnologías estándar de Java, como servlets y JSP. Además, su arquitectura modular y su gran comunidad de usuarios ofrecen soporte y recursos útiles. Profesionalmente, dominar Tomcat puede abrir oportunidades laborales en diversas industrias y sectores, ya que muchas empresas utilizan Tomcat en su infraestructura web. En resumen, Tomcat proporciona las herramientas necesarias para construir aplicaciones web sólidas y escalables, y ofrece ventajas competitivas en el mercado laboral.
-
-- [How To Install Apache Tomcat 10 on Ubuntu 20.04](https://www.digitalocean.com/community/tutorials/how-to-install-apache-tomcat-10-on-ubuntu-20-04)
-
-## 6. Repaso de Linux
+## 5. Repaso de Linux
 
 Finalmente, para complementar lo visto repasemos los comandos básicos de linux. Para ello visiten y realicen el tutorial de la universidad Nanyang Technological University (NTU). 
 
@@ -49,5 +43,4 @@ Finalmente, para complementar lo visto repasemos los comandos básicos de linux.
 2. Link a su página web personal.
 3. Pantallazos en un archivo de word donde se ve que funciona el programa y agregar un enlace del repositorio clonado o al que se le hace fork.
 4. Pantallazos en el mismo archivo de que si funciona correctamente Apache.
-5. Pantallazos en el mismo archivo word del punto anterior donde se muestre que el servidor esta funcionando.
 6. Archivo sh o pantallazos hasta los puntos que alcanzaron a llegar.
