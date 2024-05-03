@@ -84,7 +84,15 @@ Otro término que se suele utilizar es **consulta**. Una consulta es una declara
      - `FLUSH PRIVILEGES`: Recargar las tablas de concesión para asegurarse de que los nuevos privilegios entran en vigor.
    - **Ejemplo:**
      ```sql
-     GRANT SELECT ON Estudiantes TO 'usuario1'@'localhost';
+     CREATE USER 'sebas'@'localhost' IDENTIFIED BY '123456789+sS';
+     # pirivlegios a sebas a una sola base de datos
+     GRANT ALL PRIVILEGES ON world.* TO 'sebas'@'localhost';
+     # pirivlegios a sebas de todas las bases de datos
+     GRANT ALL PRIVILEGES ON *.* TO 'sebas'@'localhost';
+     # dar privilegio a sebas con algunas acciones
+     GRANT CREATE, ALTER, DROP, INSERT, UPDATE, DELETE, SELECT, REFERENCES, RELOAD on *.* TO 'sebas'@'localhost' WITH GRANT OPTION;
+     # guardando cambios
+     FLUSH PRIVILEGES;
      ```
 
 ## 5. Lenguaje de Control de Transacciones (TCL)
