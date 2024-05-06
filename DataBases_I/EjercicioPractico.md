@@ -4,6 +4,8 @@ Utilizando el contenido ya visto ahora resolvamos un problema real. Para ello va
 
 ## Consultas
 
+### Problema 1: Consultas a la BD sakila
+
 Escribe un script SQL con consultas que respondan a las siguientes preguntas:
 
 - ¿Qué actores se llaman «Scarlett»?
@@ -17,13 +19,12 @@ Escribe un script SQL con consultas que respondan a las siguientes preguntas:
 - ¿Cuándo se estrena «Academy Dinosaur»?
 - ¿Cuál es la duración media de todas las películas de la base de datos de sakila?
 - ¿Cuál es la duración media de las películas por categoría?
-- ¿Por qué esta consulta devuelve el conjunto vacío?
-
-Finalmente, ejecuta la siguiente línea:
+- ¿Por qué la siguiente consulta devuelve el conjunto vacío?
 
 ```sql
 select * from pelicula natural join inventario;
 ```
+
 
 Utilicen la siguiente plantilla, guarden el contenido en un archivo sql llamado `sakila-queries.sql`
 
@@ -82,6 +83,9 @@ La empresa X le ha contratado para diseñar y codificar una base de datos.  La b
 - **Productos:** Un producto tiene su id_producto único, nombre, un precio actualizado diariamente, stock disponible y el proveedor que lo produce. Además cada producto se clasifica en categorías. Un producto pertenece  a una categoría única y es producido por un único proveedor, pero muchos proveedores sirven productos de la misma categoría. La empresa almacena cada año un informe del estado general de cada categoría.   Este informe es sólo texto. 
 - **Transacción:** Por razones contables, cada transacción debe registrarse con un id, una fecha, el cliente, el descuento y el importe pagado, las unidades de cada producto y el precio en el día de la transacción.
 
+## Entregables
+
+Para el primer punto un archivo sql para el segundo el diagrama y los códigos generados por la ingeniería directa.
 
 ## Referencias
 
