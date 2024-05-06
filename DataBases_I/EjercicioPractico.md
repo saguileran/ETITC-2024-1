@@ -92,6 +92,8 @@ La empresa X le ha contratado para diseñar y codificar una base de datos.  La b
 - [Course : MySQL Fundamentals](https://learn.oracle.com/ols/course/mysql-fundamentals/88337/88842  )
 - [My DataScience Notebook](https://oindrilasen.com/2021/04/sql-interview-practice/)
 - [Coursera-Managing-Big-Data-with-MySQL](https://github.com/raffg/Coursera-Managing-Big-Data-with-MySQL/tree/master)
+- [Introduction to SQL](https://sqlbolt.com/)
+- [MySQL 8.0 Reference Manual](https://dev.mysql.com/doc/refman/8.0/en)
 
 ### Repositorios
 
