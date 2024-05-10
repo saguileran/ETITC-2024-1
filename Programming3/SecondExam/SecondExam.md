@@ -13,7 +13,6 @@
 Crea la estructura de archivos para una aplicación llamada `segundo_parcial`, recuerda no agregar el archivo context e ir reiniciando la aplicación web app desde el manager para encontrar los errores que puedan dañar al tomcat de forma más fácil. Agrega el archivo de configuración de la aplicaición:
 
 ```xml
-<!-- archivo web.xml -->
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns = "https://jakarta.ee/xml/ns/jakartaee"
          xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
@@ -213,7 +212,7 @@ Ahora crea un archivo jsp llamado `dados.jsp` en la carpeta raíz de la aplicaci
 </html>
 ```
 
-Para llamarlo tienen que ir al URL `localhost:8080/segundo_parcial/dados.jsp`. El servlet a utilizar es `Dices.java` con dirección `\dices`, **este servlet no es necesario de compilar**. Copien y peguen el siguiente servlet dentro de src.
+Para llamarlo tienen que ir al URL `localhost:8080/segundo_parcial/dados.jsp`. El servlet a utilizar es `Dices.java` con dirección `\dices`, **este servlet es necesario compilarlo pero no deben agregarlo al web.xml**. Copien y peguen el siguiente servlet dentro de src.
 
 ```java
 // servlet Dices.java -- no modificar
