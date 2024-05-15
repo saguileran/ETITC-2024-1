@@ -2,6 +2,8 @@
 
 En el desarrollo web, mantener el estado entre múltiples solicitudes es esencial debido a que HTTP es por naturaleza sin estado. Para gestionar el estado, utilizamos sesiones y cookies. En esta lección, exploraremos cómo usar sesiones y cookies en Java Servlets y JSP usando el framework Jakarta EE.
 
+Pueden usar el comando `sudo code /opt/tomcat/webapps/app_name --user-data-dir='.' --no-sandbox` para ejecutar vsc como root.
+
 ## Objetivos
 
 - Entender el concepto de sesiones y cookies.
@@ -21,15 +23,15 @@ En el desarrollo web, mantener el estado entre múltiples solicitudes es esencia
 
 Asegúrate de tener lo siguiente configurado:
 
-- Java Development Kit (JDK)
-- Servidor Apache Tomcat (versión 10 o posterior, que soporta Jakarta EE)
-- Un Entorno de Desarrollo Integrado (IDE) como Eclipse o IntelliJ IDEA
+- Java Development Kit (JDK).
+- Servidor Apache Tomcat (versión 10 o posterior, que soporta Jakarta EE).
+- Un Entorno de Desarrollo Integrado (IDE) como Eclipse o IntelliJ IDEA, o en nuestro caso la terminal.
 
 ### 2. Creación del Proyecto
 
 1. Abre tu IDE y crea un nuevo Proyecto Web Dinámico.
 2. Configura el proyecto para usar Apache Tomcat.
-3. Crea la estructura de directorios necesaria: `src`, `WebContent`, `WEB-INF`.
+3. Crea la estructura de directorios necesaria, para ello utiliza el ejecutable que esta en la carpeta códigos, `folders.sh`.
 
 ### 3. Manejo de Cookies en Java Servlets
 
@@ -96,7 +98,7 @@ public class SessionServlet extends HttpServlet {
         // Creación de una sesión
         HttpSession session = request.getSession();
         session.setAttribute("username", "Sebastian");
-
+        
         // Recuperación de datos de la sesión
         String username = (String) session.getAttribute("username");
         if (username != null) {
@@ -107,6 +109,8 @@ public class SessionServlet extends HttpServlet {
     }
 }
 ```
+
+Por facilidad utiliza el ejecutable `servlets.sh` para compilar todas los archivos java dentro de src.
 
 ### 5. Uso de JSP para Mostrar Datos
 
@@ -153,13 +157,14 @@ En esta lección, aprendiste a gestionar el estado en una aplicación web usando
 
 ## Ejercicio Práctico
 
+Realiza el tutorial [Session Management in Java - HttpServlet, Cookies, URL Rewriting - Digital Ocean](https://www.digitalocean.com/community/tutorials/java-session-management-servlet-httpsession-url-rewriting).
 
 ## Referencias
 
 ### Principales
 
-- [Session Management in Java - HttpServlet, Cookies, URL Rewriting](https://www.digitalocean.com/community/tutorials/java-session-management-servlet-httpsession-url-rewriting)
-- [Session Tracking - Jakarta(Java) Servlets](https://www3.ntu.edu.sg/home/ehchua/programming/java/JavaServlets.html#SessionTracking)
+- [Session Management in Java - HttpServlet, Cookies, URL Rewriting - Digital Ocean](https://www.digitalocean.com/community/tutorials/java-session-management-servlet-httpsession-url-rewriting)
+- [Session Tracking - Jakarta(Java) Servlets - NTU](https://www3.ntu.edu.sg/home/ehchua/programming/java/JavaServlets.html#SessionTracking)
 
 
 ### Complementarios
