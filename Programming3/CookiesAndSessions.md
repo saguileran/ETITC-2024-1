@@ -4,6 +4,7 @@ En el desarrollo web, mantener el estado entre múltiples solicitudes es esencia
 
 Pueden usar el comando `sudo code /opt/tomcat/webapps/app_name --user-data-dir='.' --no-sandbox` para ejecutar vsc como root. 
 
+
 ## Objetivos
 
 - Entender el concepto de sesiones y cookies.
@@ -33,7 +34,7 @@ Asegúrate de tener lo siguiente configurado:
 2. Configura el proyecto para usar Apache Tomcat.
 3. Crea la estructura de directorios necesaria, para ello utiliza el ejecutable que esta en la carpeta códigos, `folders.sh`. 
 
-Para crear el ejecutable primero creen el archivo y después vuelvanlo ejecutable con el comando `chmod +x folders.sh`, finalmente lo ejecutan con `./folders.sh`.
+Para crear el ejecutable primero creen el archivo y después haganlo ejecutable con el comando `chmod +x folders.sh`, finalmente lo ejecutan con `./folders.sh`. Con el archivo de `servers.sh` tan solo deben de modificar la primera línea y colocar la dirección correcta a su aplicación. Además, para que funcione el script deben guardarlo y ejecutarlo desde la carpeta `WEB-INF`.
 
 ### 3. Manejo de Cookies en Java Servlets
 
@@ -159,7 +160,11 @@ En esta lección, aprendiste a gestionar el estado en una aplicación web usando
 
 ## Ejercicio Práctico
 
-Realiza el tutorial [Session Management in Java - HttpServlet, Cookies, URL Rewriting - Digital Ocean](https://www.digitalocean.com/community/tutorials/java-session-management-servlet-httpsession-url-rewriting). Coloquen todas las clases dentro de src y que no pertenezcan a ninguna clase, por falicidad y para que les funcionen el script de `servlets.java`
+Realiza el tutorial [Session Management in Java - HttpServlet, Cookies, URL Rewriting - Digital Ocean](https://www.digitalocean.com/community/tutorials/java-session-management-servlet-httpsession-url-rewriting). Coloquen todas las clases dentro de src y que no pertenezcan a ningún paquete, por falicidad y para que les funcione el script de `servlets.java`.
+
+**Entregables**
+
+Archivo war funcional con todos los servlets creados y arhivos creados.
 
 ## Referencias
 
