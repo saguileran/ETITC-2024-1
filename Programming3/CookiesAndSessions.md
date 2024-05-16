@@ -2,7 +2,7 @@
 
 En el desarrollo web, mantener el estado entre múltiples solicitudes es esencial debido a que HTTP es por naturaleza sin estado. Para gestionar el estado, utilizamos sesiones y cookies. En esta lección, exploraremos cómo usar sesiones y cookies en Java Servlets y JSP usando el framework Jakarta EE.
 
-Pueden usar el comando `sudo code /opt/tomcat/webapps/app_name --user-data-dir='.' --no-sandbox` para ejecutar vsc como root.
+Pueden usar el comando `sudo code /opt/tomcat/webapps/app_name --user-data-dir='.' --no-sandbox` para ejecutar vsc como root. 
 
 ## Objetivos
 
@@ -31,7 +31,9 @@ Asegúrate de tener lo siguiente configurado:
 
 1. Abre tu IDE y crea un nuevo Proyecto Web Dinámico.
 2. Configura el proyecto para usar Apache Tomcat.
-3. Crea la estructura de directorios necesaria, para ello utiliza el ejecutable que esta en la carpeta códigos, `folders.sh`.
+3. Crea la estructura de directorios necesaria, para ello utiliza el ejecutable que esta en la carpeta códigos, `folders.sh`. 
+
+Para crear el ejecutable primero creen el archivo y después vuelvanlo ejecutable con el comando `chmod +x folders.sh`, finalmente lo ejecutan con `./folders.sh`.
 
 ### 3. Manejo de Cookies en Java Servlets
 
@@ -157,7 +159,7 @@ En esta lección, aprendiste a gestionar el estado en una aplicación web usando
 
 ## Ejercicio Práctico
 
-Realiza el tutorial [Session Management in Java - HttpServlet, Cookies, URL Rewriting - Digital Ocean](https://www.digitalocean.com/community/tutorials/java-session-management-servlet-httpsession-url-rewriting).
+Realiza el tutorial [Session Management in Java - HttpServlet, Cookies, URL Rewriting - Digital Ocean](https://www.digitalocean.com/community/tutorials/java-session-management-servlet-httpsession-url-rewriting). Coloquen todas las clases dentro de src y que no pertenezcan a ninguna clase, por falicidad y para que les funcionen el script de `servlets.java`
 
 ## Referencias
 
