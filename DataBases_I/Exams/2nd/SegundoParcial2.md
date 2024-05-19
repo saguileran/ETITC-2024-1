@@ -8,21 +8,23 @@ Este segundo parcial evalua los temas vistos en el segundo corte, esta vez no ne
 
 A partir de esta descripción narrativa identifique los datos a almacenar y las entidades que se requieren.
 
-    Una empresa de investigación hortícola está realizando un estudio sobre diferentes plantas cultivadas con un nuevo fertilizante. Usted es el responsable de diseñar la base de datos.
 
-    Debe almacenar datos sobre diversas plantas, incluyendo el nombre científico, el nombre común y la familia. 
+>Una empresa de investigación hortícola está realizando un estudio sobre diferentes plantas cultivadas con un nuevo fertilizante. Usted es el responsable de diseñar la base de datos.
+>
+>Debe almacenar datos sobre diversas plantas, incluyendo el nombre científico, el nombre común y la familia. 
+>
+>Deben registrarse las condiciones ambientales de cada invernadero, incluida la temperatura y la luminosidad. 
+>
+>El sustrato del suelo (tipo y PH) y la dilución del nuevo fertilizante se registran para cada bandeja.
+>
+>Debe registrarse una conclusión para cada resultado de la bandeja.
+>
+>Las observaciones diarias del crecimiento de las plantas para cada grupo de plantas deben almacenarse con un comentario opcional. 
+>
+>Identifique los datos y, a continuación, modele las entidades en un ERD.
+>
+>Crea el diagrama y los códigos sql, pruebalos ya que estos deben de funcionar correctamente. Todas las tablas deben tener una llave primaria. Debe agregarse la relación que aparece en los textos.
 
-    Deben registrarse las condiciones ambientales de cada invernadero, incluida la temperatura y la luminosidad. 
-    
-    El sustrato del suelo (tipo y PH) y la dilución del nuevo fertilizante se registran para cada bandeja.
-
-    Debe registrarse una conclusión para cada resultado de la bandeja.
-
-    Las observaciones diarias del crecimiento de las plantas para cada grupo de plantas deben almacenarse con un comentario opcional. 
-    
-    Identifique los datos y, a continuación, modele las entidades en un ERD.
-
-Crea el diagrama y los códigos sql, pruebalos ya que estos deben de funcionar correctamente. Todas las tablas deben tener una llave primaria. Debe agregarse la relación que aparece en los textos.
 
 ## Normalziación (40 min)
 
