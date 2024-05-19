@@ -1,4 +1,4 @@
-# Proyecto Articulador (PAR) de Bases de Datos I
+# Proyecto Articulador (PAR) de Porgramación III
 ---
 
 ## Objetivo
@@ -61,19 +61,13 @@ Agrega todas las referencias utilizadas: documentos, códigos, de dónde se saco
 
 ## Entregables
 
->[!IMPORTANT]
 
 Todos los entregables deben estar en el repositorio. Estos entregables del proyecto incluirán:
 
-- Documentación del diseño de la base de datos en formato Markdown.
-- Script de creación de la base de datos.
-- Script de población de datos, en nuestro caso la importación de los archivos.
-- Reportes de pruebas y validación en formato Markdown.
 - Repositorio de GitHub con todos los archivos y documentos del proyecto.
 
 ## Evaluación
 
-El proyecto será evaluado en base a la calidad del diseño de la base de datos, la implementación correcta y eficiente del sistema, la completitud de la documentación y la presentación de los reportes en Markdown. Los porcentajes son 
 
 - Diseño: 50 %
     - 
