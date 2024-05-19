@@ -44,8 +44,7 @@ La base de datos que usaremos es [northwind - db-samples](https://github.com/har
 # 1. Seleccione todos los nombres de categorías con sus descripciones de la tabla correspondiente a Categorías.
 
 
-# 2. Seleccione el nombre de contacto, el identificador de cliente y el nombre de la empresa de todos los Clientes
-en Londres.
+# 2. Seleccione el nombre de contacto, el identificador de cliente y el nombre de la empresa de todos los Clientes en Londres.
 
 
 # 3. Los responsables de marketing y los representantes de ventas le han pedido que seleccione todas las columnas disponibles en la tabla de proveedores <u>que tengan un número</u> de FAX, no valores nulos.
