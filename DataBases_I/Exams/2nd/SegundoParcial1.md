@@ -4,7 +4,7 @@ Este segundo parcial evalua los temas vistos en el segundo corte, esta vez no ne
 
 ¡Éxitos!
 
-## Ingeniería Reversa (40 min)
+## Ingeniería Directa (40 min)
 
 A partir de esta descripción narrativa identifique los datos a almacenar y las entidades que se requieren.
 
