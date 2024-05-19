@@ -8,13 +8,13 @@ Este segundo parcial evalua los temas vistos en el segundo corte, esta vez no ne
 
 A partir de esta descripción narrativa identifique los datos a almacenar y las entidades que se requieren.
 
-    Soy gerente de una empresa mayorista de artículos deportivos que opera en todo el mundo para satisfacer los pedidos de las tiendas de artículos deportivos en todo el mundo para satisfacer los pedidos de las tiendas minoristas de artículos deportivos. Las tiendas son nuestros clientes. Para cada cliente, debemos rastrear una identificación y un nombre. Podemos rastrear una dirección, incluyendo la ciudad, el condado, el código postal, el país y el número de teléfono.
-
-    Debemos registrar información sobre nuestras existencias, incluidos el DNI, la descripción, precio, cantidad en stock. Mantenemos existencias en los almacenes para atender mejor los pedidos de nuestros clientes. Para cada pedido, debemos rastrear un ID. Registramos la fecha de pedido, la fecha de envío y el tipo de pago cuando la información está disponible. 
-
-    Cada almacén debe tener una identificación para la que rastreamos una dirección que incluye la ciudad, el condado, el código postal, el país y el número de teléfono.
-
-    Los departamentos se encargan de realizar y seguir los pedidos cuando llaman nuestros clientes. Para cada departamento, debemos rastrear el ID y el nombre. También podemos registrar comentarios generales sobre un cliente.
+>Soy gerente de una empresa mayorista de artículos deportivos que opera en todo el mundo para satisfacer los pedidos de las tiendas de artículos deportivos en todo el mundo para satisfacer los pedidos de las tiendas minoristas de artículos deportivos. Las tiendas son nuestros clientes. Para cada cliente, debemos rastrear una identificación y un nombre. Podemos rastrear una dirección, incluyendo la ciudad, el condado, el código postal, el país y el número de teléfono.
+>
+>Debemos registrar información sobre nuestras existencias, incluidos el DNI, la descripción, precio, cantidad en stock. Mantenemos existencias en los almacenes para atender mejor los pedidos de nuestros clientes. Para cada pedido, debemos rastrear un ID. Registramos la fecha de pedido, la fecha de envío y el tipo de pago cuando la información está disponible. 
+>
+>Cada almacén debe tener una identificación para la que rastreamos una dirección que incluye la ciudad, el condado, el código postal, el país y el número de teléfono.
+>
+>Los departamentos se encargan de realizar y seguir los pedidos cuando llaman nuestros clientes. Para cada departamento, debemos rastrear el ID y el nombre. También podemos registrar comentarios generales sobre un cliente.
 
 
 Crea el diagrama y los códigos sql, pruebalos ya que estos deben de funcionar correctamente. Todas las tablas deben tener una llave primaria. Debe agregarse la relación que aparece en los textos.
