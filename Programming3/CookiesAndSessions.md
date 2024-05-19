@@ -162,9 +162,9 @@ En esta lección, aprendiste a gestionar el estado en una aplicación web usando
 
 Realiza el tutorial [Session Management in Java - HttpServlet, Cookies, URL Rewriting - Digital Ocean](https://www.digitalocean.com/community/tutorials/java-session-management-servlet-httpsession-url-rewriting). Coloquen todas las clases dentro de src y que no pertenezcan a ningún paquete, por falicidad y para que les funcione el script de `servlets.java`.
 
-**Entregables**
-
-Archivo war funcional con todos los servlets creados y arhivos creados.
+> [!IMPORTANT]
+> #### Entregables
+> Archivo war funcional con todos los servlets creados y arhivos creados. Deben agregar los códigos que aparecen en este tutorial y los códigos del tutorial de Digital Ocean, para este último pueden agregar pantallazos de los códigos funcionando ya que el resultado final son solo dos servlets. 
 
 ## Referencias
 

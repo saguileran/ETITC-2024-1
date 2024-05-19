@@ -1,26 +1,47 @@
-# Proyecto Articulador (PAR) de Bases de Datos
+# Proyecto Articulador (PAR) de Bases de Datos I
 ---
 
-El proyecto consiste en diseñar y desarrollar una base de datos basada para el tema seleccionado por el grupo. El objetivo es aplicar los conceptos y técnicas aprendidas en el curso de Bases de Datos I para crear una base de datos funcional, eficiente, y óptima. 
+## Objetivo
 
-Con el fin de optimizar el proyecto y potenciar nuestra creatividad pueden hacer uso de ChatGPT/Copilot o la inteligencia que gusten.
+El proyecto consiste en diseñar, desarrollar, e implementar una base de datos para el tema seleccionado por el grupo. El objetivo es aplicar los conceptos y técnicas aprendidas en el curso de Bases de Datos I con el fin de crear una base de datos funcional, eficiente, y óptima. 
+
+> [!TIP]
+>Para optimizar el desarrollo del proyecto y potenciar nuestra creatividad pueden hacer uso de ChatGPT/Copilot o la inteligencia que gusten. 
+>
+>*Recuerden la inteligencia nos ayuda, no nos hace el trabajo*.
 
 ## Tema Seleccionado
 
-Debes utilizar el conjunto de datos que seleccionaste desde el principio y que hemos venido trabajando. Quienes quieran cambiar de tema recuerden que la idea ha sido hacer todo lo que hemos visto y prácticado en clase pero aplicado a nuestro conjunto de datos seleccionado desde el inicio, para ir adelantando trabajo, entonces trendran que hacer los mismos procesos que ya hemos adelantado. Quienes ya los hicieron revisen sus procesos basados en la nota obtenida y mejorenlos según los comentarios en la calificación.
+Deben utilizar uno de los conjuntos de datos con los cuales han venido trabajando, discutan y seleccionen un conjunto de datos del grupo que tenga más de 100 tuplas y 20 atributos, recuerden que si lo ven necesario pueden agregas diferentes atributos para cumplir con el requisito. Quienes quieran cambiar de tema no olviden que la idea ha sido hacer todo lo que hemos visto y prácticado en clase pero aplicado a nuestro conjunto de datos seleccionado desde el inicio, para ir adelantando trabajo, entonces trendran que hacer los mismos procesos que ya hemos adelantado. 
 
-La idea es que aunque trabajen en grupo cada uno debe tener un conjunto diferente de datos, en principio con un tema similar, recuerden que este conjunto de datos fue seleccionado al inicio y no debe ser un conjunto de datos ya creado y que ya este en su forma relacional. **Quienes presenten algo que ya estaba hecho serán penalizados.**
-Para verificar que no pasa esto, debes agregar al repositorio la base de datos original e ir mostrando como en cada paso se logra pasar de un archivo csv, un simple conjunto de datos (dataset), a una base de datos relacional.
+Este proyecto sera almacenado en GitHub y la idea es escribir todos los reportes el lenguaje markdown, en internet existen muchas referencias aca les dejo dos: 
+- [www.markdowntutorial.com](https://www.markdowntutorial.com/)
+- [Basic writing and formatting syntax](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#section-links) 
+
+Recuerden que este conjunto de datos fue seleccionado al inicio y no debe ser un conjunto de datos ya creado y que ya este en su forma relacional. **Quienes presenten algo que ya estaba hecho serán penalizados.** Para verificar que no pasa esto, deben agregar al repositorio la base de datos original e ir mostrando como en cada paso se logra pasar de un archivo csv, un simple conjunto de datos (dataset), a una base de datos relacional. 
+
+
+## Almacenamiento del Proyecto
+
+A la fecha **Git** es el control de versiones más utilizado en todo el mundo, tal es la cosa que la mayoría de software que usamos esta alojado en GitHub o GitLab convirtiendolo en una herramienta fundamental para un ingeniero de sistemas. Por esta y muchas más otras razones utilizaremos GitHub para alojar y direccionar el proyecto PAR.
 
 ## Tareas del Proyecto
 
 El proyecto constará de las siguientes tareas principales:
 
-#### 1. Investigación y Análisis del Tema
+#### 1. Investigación y Análisis del Tema (Abstract)
 
-Descripción del problema a solucionar y cómo se va a solucionar utilizando las herramientas aprendidas, qué aporte dara cada herramienta/método utilizado. Agrega un objetivo principal y uno o varios complementarios, además menciona cuales son las aplicaciones de su base de datos y como esta podría contribuir a la empresa-entidad de donde fue obtenida. Añade que beneficios generará el diseño y la implementación que estas realizando. 
+Plantear un problema relacionado al [objetivo](#objetivo) y describir cómo se va a solucionar utilizando las herramientas aprendidas, qué aporte dara cada herramienta/método utilizado. Agrega un objetivo principal y uno o varios complementarios, además mencionar cuales son las aplicaciones de su base de datos y como esta podría contribuir a la empresa-entidad de donde fue obtenida.
 
-Identifica que requisitos tiene la base de datos y que caractéristicas debería tener (escalabiliad, flexible, granularidad, etc), no olvides de agregarlas al reporte.
+Identificar que requisitos tiene la base de datos y que caractéristicas debería tener (escalabiliad, flexibilidad, granularidad, etc).
+
+**En esta sección también deben agregar la distribuición del trabajo, que va hacer cada uno. Pueden repartirse el trabajo como quieran pero todos deben comentar y participar en Github.**
+
+> [!TIP]
+> *Esta sección busca describir y dar un sentido al proyecto, la idea es que cualquiera pueda leerlo y entenderlo.*
+
+> [!IMPORTANT]
+> **La primera entrega sera realizar la primera tarea y crear el proyecto en GitHub. De una vez creen la sección de referencias y la van llenando.**
 
 
 #### 2. Diseño de la Base de Datos
@@ -67,5 +88,10 @@ Todos los entregables deben estar en el repositorio. Estos entregables del proye
 El proyecto será evaluado en base a la calidad del diseño de la base de datos, la implementación correcta y eficiente del sistema, la completitud de la documentación y la presentación de los reportes en Markdown. Los porcentajes son 
 
 - Diseño: 50 %
+  - Calidad de la relación creada
+  - Calidad de la normalización
 - Implementación: 30 %
+  - Completitud de los código solicitados
+  - 
 - Repositorio: 20%
+  - Calidad de reportes por cada paso
