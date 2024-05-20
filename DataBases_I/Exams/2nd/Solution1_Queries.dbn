@@ -1,0 +1,93 @@
+{
+ "cells": [
+  {
+   "kind": 2,
+   "language": "sql",
+   "value": "# 1. Seleccione todos los nombres de categorías con sus descripciones de la tabla correspondiente a Categorías.\nSELECT categoryName,description FROM Category;",
+   "metadata": {
+    "connectionName": "secondexam"
+   }
+  },
+  {
+   "kind": 2,
+   "language": "sql",
+   "value": "# 2. Seleccione el nombre de contacto, el identificador de cliente y el nombre de la empresa de todos los Clientes en Londres.\nSELECT contactName,custId,companyName FROM Customer \nWHERE city=\"London\";",
+   "metadata": {
+    "connectionName": "secondexam"
+   }
+  },
+  {
+   "kind": 2,
+   "language": "sql",
+   "value": "# 3. Los responsables de marketing y los representantes de ventas le han pedido que seleccione todas las columnas disponibles en la tabla de proveedores que tengan un número de FAX, no valores nulos.\nSELECT * FROM Supplier \nWHERE fax IS NOT null; ",
+   "metadata": {
+    "connectionName": "secondexam"
+   }
+  },
+  {
+   "kind": 2,
+   "language": "sql",
+   "value": "# 4. Seleccione una lista de ids de clientes, cargas, y fechas requeridas de la tabla de pedidos (orders) con fechas requeridas (requiere date) entre el mes de enero y febrero de 2007 y con cargas inferiores (Freight) a 100 unidades. Usar comando `BETWEEN` o `IF` para las fechas.\nSELECT custId,freight,requiredDate FROM SalesOrder\nWHERE requiredDate BETWEEN \"2007-01-01\" AND \"2007-03-01\"\n#WHERE requiredDate>=\"2007-01-01\" AND requiredDate<\"2007-03-01\" \nAND freight<100;",
+   "metadata": {
+    "connectionName": "secondexam"
+   }
+  },
+  {
+   "kind": 2,
+   "language": "sql",
+   "value": "# 5. Cuente el número de productos que siguen disponibles, que no estan descontinuados, en la tabla de productos. Usar comando `Count`.\nSELECT count(discontinued) FROM Product \nWHERE discontinued=0;",
+   "metadata": {
+    "connectionName": "secondexam"
+   }
+  },
+  {
+   "kind": 2,
+   "language": "sql",
+   "value": "# 6. Seleccione una lista de nombres de categorías y descripciones de todas las categorías que empiecen por \"Co\" de la tabla Categorías. Usar el comando `like` y el operador `%`.\nSELECT categoryName,description FROM Category \nWHERE categoryName LIKE \"Co%\";",
+   "metadata": {
+    "connectionName": "secondexam"
+   }
+  },
+  {
+   "kind": 2,
+   "language": "sql",
+   "value": "# 7. Seleccione todos los nombres de empresas, dirección, ciudad, país y código postal de la tabla de proveedores con la palabra «Av» en su dirección. La lista debe estar ordenada alfabéticamente y ascendentemente por el nombre del proveedor. Use los mismos comandos del ejercicio 6.\nSELECT companyName,address,city,country,postalCode FROM Supplier\nWHERE address LIKE \"%Av%\" ORDER BY companyName ASC;",
+   "metadata": {
+    "connectionName": "secondexam"
+   }
+  },
+  {
+   "kind": 2,
+   "language": "sql",
+   "value": "# 8. Seleccione el id de producto y las cantidades totales pedidas para cada id de producto en la tabla Detalles del Pedido. Utilicen el comando `ORDER BY` Y `SUM`.\nSELECT productId,SUM(quantity) as Total\nFROM OrderDetail\nGROUP BY productId ORDER BY Total;",
+   "metadata": {
+    "connectionName": "secondexam"
+   }
+  },
+  {
+   "kind": 2,
+   "language": "sql",
+   "value": "# 9. Seleccione el nombre del cliente y la dirección de todos los clientes con pedidos que se enviaron utilizando Shipper GVSUA. Utilicen el comando `INNER JOIN`.\nSELECT DISTINCT contactName, address #, Shipper.CompanyName\nFROM Customer\n\tINNER JOIN SalesOrder ON Customer.custId = SalesOrder.custId\n\tINNER JOIN Shipper ON SalesOrder.shipperid = Shipper.ShipperID\nWHERE Shipper.CompanyName = 'Shipper GVSUA';",
+   "metadata": {
+    "connectionName": "secondexam"
+   }
+  },
+  {
+   "kind": 2,
+   "language": "sql",
+   "value": "# 10. Cambia el nombre de la categoria \"Grains/Cereals\" a \"Granos/Cereales\" y traduce la descripción de la tabla de categorias. Para mayor facilidad revisa cual es el id de esa categoria y haz la actualización usando ese id. Utiliza los comandos `UPDATE` and `SET`.\n#select * from Category; # revisar cual es el id de Grains/Cereals\nUPDATE Category\nSET categoryName = 'Granos/Cereales', description = 'Pan, galleta, pasta, cereal, y quinoa'\nWHERE categoryId = 5;",
+   "metadata": {
+    "connectionName": "secondexam"
+   }
+  },
+  {
+   "kind": 2,
+   "language": "sql",
+   "value": "# 11. (Opcional) Seleccione el nombre y apellido del empleado y el nombre del cliente para los pedidos enviados por la empresa «GVSUA» a clientes residentes en Bruselas. Utilicen el comando `JOIN`\nSELECT DISTINCT e.LastName, e.FirstName, c.ContactName\nFROM Employee e\n\tJOIN SalesOrder AS o ON o.EmployeeID = e.EmployeeID\n\tJOIN Customer AS c ON o.custId = c.custId\n\tJOIN Shipper AS s ON o.Shipperid = s.ShipperID\nWHERE s.CompanyName ='GVSUA' AND c.City = 'Bruxelles';",
+   "metadata": {
+    "connectionName": "secondexam"
+   }
+  }
+ ],
+ "metadata": {}
+}

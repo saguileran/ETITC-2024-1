@@ -20,10 +20,10 @@ A partir de esta descripción narrativa identifique los datos a almacenar y las 
 >Debe registrarse una conclusión para cada resultado de la bandeja.
 >
 >Las observaciones diarias del crecimiento de las plantas para cada grupo de plantas deben almacenarse con un comentario opcional. 
->
->Identifique los datos y, a continuación, modele las entidades en un ERD.
->
->Crea el diagrama y los códigos sql, pruebalos ya que estos deben de funcionar correctamente. Todas las tablas deben tener una llave primaria. Debe agregarse la relación que aparece en los textos.
+
+Identifique los datos y, a continuación, modele las entidades en un ERD.
+
+Crea el diagrama y los códigos sql, pruebalos ya que estos deben de funcionar correctamente. Todas las tablas deben tener una llave primaria. Debe agregarse la relación que aparece en los textos.
 
 
 ## Normalziación (40 min)

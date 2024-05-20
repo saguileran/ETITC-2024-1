@@ -1,0 +1,102 @@
+{
+ "cells": [
+  {
+   "kind": 2,
+   "language": "sql",
+   "value": "# 1. Seleccione todos los nombres de los exportadores (shipper) con sus números telefónicos de la tabla correspondiente a Exportadores.\nSELECT companyName,phone FROM Shipper;",
+   "metadata": {
+    "markAsSkip": false,
+    "connectionName": "secondexam"
+   }
+  },
+  {
+   "kind": 2,
+   "language": "sql",
+   "value": "# 2. Seleccione el nombre de contacto, el identificador de cliente y el nombre de la ciudad de todos los clientes en España (spain).\nSELECT contactName,custId,companyName,city FROM Customer \nWHERE country=\"Spain\";",
+   "metadata": {
+    "connectionName": "secondexam"
+   }
+  },
+  {
+   "kind": 2,
+   "language": "sql",
+   "value": "# 3. Los responsables de marketing y los representantes de ventas le han pedido que seleccione todas las columnas disponibles en la tabla de proveedores que tengan una región, no valores nulos.\nSELECT * FROM Supplier \nWHERE region IS NOT null;",
+   "metadata": {
+    "connectionName": "secondexam"
+   }
+  },
+  {
+   "kind": 2,
+   "language": "sql",
+   "value": "# 4. Seleccione una lista de ids de clientes, cargas, y fechas requeridas de la tabla de pedidos (orders) con fechas requeridas (requiere date) entre el mes de agosto y septiembre de 2006 y con cargas inferiores (Freight) a 80 unidades. Usar comando `BETWEEN` o `IF` para las fechas.\nSELECT custId,freight,requiredDate FROM SalesOrder\nWHERE requiredDate BETWEEN \"2006-08-01\" AND \"2006-10-01\"\n#WHERE requiredDate>=\"2006-08-01\" AND requiredDate<\"2006-10-01\" \nAND freight<80;\n\n",
+   "metadata": {
+    "connectionName": "secondexam"
+   }
+  },
+  {
+   "kind": 2,
+   "language": "sql",
+   "value": "# 5. Cuente el número de productos descontinuados en la tabla de productos. Usar comando `Count`.\nSELECT count(discontinued) FROM Product  # o count(*)\nWHERE discontinued=1;",
+   "metadata": {
+    "connectionName": "secondexam"
+   }
+  },
+  {
+   "kind": 2,
+   "language": "sql",
+   "value": "# 6. Seleccione una lista de nombres de categorías y descripciones de todas las categorías que terminen por \"ts\" de la tabla Categorías. Usar el comando `like` y el operador `%`.\nSELECT categoryName,description FROM Category \nWHERE categoryName LIKE \"%ts\";",
+   "metadata": {
+    "connectionName": "secondexam"
+   }
+  },
+  {
+   "kind": 2,
+   "language": "sql",
+   "value": "# 7. Seleccione todos los nombres de empresas, dirección, ciudad, país y código postal de la tabla de proveedores con la palabra «rue» en su dirección. La lista debe estar ordenada alfabéticamente descendientemente por el nombre de la ciudad. Use los mismos comandos del ejercicio 6.\nSELECT companyName,address,city,country,postalCode FROM Supplier\nWHERE address LIKE \"%rue%\" ORDER BY city DESC;",
+   "metadata": {
+    "connectionName": "secondexam"
+   }
+  },
+  {
+   "kind": 2,
+   "language": "sql",
+   "value": "# 8. Seleccione el id de producto y las cantidades totales pedidas para cada id de producto en la tabla Detalles del Pedido. Utilicen el comando `ORDER BY` Y `SUM`.\nSELECT productId,sum(quantity) as Total\nFROM OrderDetail\nGROUP BY productId ORDER BY Total;",
+   "metadata": {
+    "connectionName": "secondexam"
+   }
+  },
+  {
+   "kind": 2,
+   "language": "sql",
+   "value": "# 9. Seleccione el nombre del cliente, la dirección, y el fax de todos los clientes con pedidos que se enviaron utilizando Shipper ZHISN. Utilicen el comando `INNER JOIN`.\nSELECT DISTINCT contactName, address#, Shipper.CompanyName\nFROM Customer\n\tINNER JOIN SalesOrder ON Customer.custId = SalesOrder.custId\n\tINNER JOIN Shipper ON SalesOrder.shipperid = Shipper.ShipperID\nWHERE Shipper.CompanyName = 'Shipper ZHISN';",
+   "metadata": {
+    "connectionName": "secondexam"
+   }
+  },
+  {
+   "kind": 2,
+   "language": "sql",
+   "value": "# 10. Cambia el nombre de la empresa de \"Shipper GVSUA\" a \"GVSUA\" y el número de teléfono a tu propio número incluyendo el (+57) en la tabla exportadores (shipper). Para mayor facilidad revisa cual es el id de ese exportador y haz la actualización usando ese id. Utiliza los comandos `UPDATE` and `SET`.\n#SELECT * FROM Shipper; # revisa el id de Shipper GVSUA\nUPDATE Shipper\nSET CompanyName = 'GVSUA', phone=\"(057) 3195140529\"\nWHERE shipperid = 1;",
+   "metadata": {
+    "connectionName": "secondexam"
+   }
+  },
+  {
+   "kind": 2,
+   "language": "sql",
+   "value": "SELECT * FROM Shipper;",
+   "metadata": {
+    "connectionName": "secondexam"
+   }
+  },
+  {
+   "kind": 2,
+   "language": "sql",
+   "value": "# 11. (Opcional) Seleccione el nombre y apellido del empleado y el nombre del cliente para los pedidos enviados por la empresa «GVSUA» a clientes residentes en Bruselas. Utilicen el comando `JOIN`\nSELECT DISTINCT e.LastName, e.FirstName, c.ContactName\nFROM Employee e\n\tJOIN SalesOrder AS o ON o.EmployeeID = e.EmployeeID\n\tJOIN Customer AS c ON o.custId = c.custId\n\tJOIN Shipper AS s ON o.Shipperid = s.ShipperID\nWHERE s.CompanyName ='GVSUA' AND c.City = 'Bruxelles';",
+   "metadata": {
+    "connectionName": "secondexam"
+   }
+  }
+ ],
+ "metadata": {}
+}
