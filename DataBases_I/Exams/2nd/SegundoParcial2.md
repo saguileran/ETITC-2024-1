@@ -48,8 +48,7 @@ La base de datos que usaremos es [northwind - db-samples](https://github.com/har
 # 1. Seleccione todos los nombres de los exportadores (shipper) con sus números telefónicos de la tabla correspondiente a Exportadores.
 
 
-# 2. Seleccione el nombre de contacto, el identificador de cliente y el nombre de la ciudad de todos los clientes
-en España (spain).
+# 2. Seleccione el nombre de contacto, el identificador de cliente y el nombre de la ciudad de todos los clientes en España (spain).
 
 
 # 3. Los responsables de marketing y los representantes de ventas le han pedido que seleccione todas las columnas disponibles en la tabla de proveedores <u>que tengan una región</u>, no valores nulos.
