@@ -3,6 +3,8 @@
 
 El objetivo de este ejercicio práctico es profundizar el conocimiento de los alumnos con la instalación y configuración de los sistemas operativos Ubuntu y Windows en VirtualBox. Los alumnos aprenderán a crear máquinas virtuales, particionar discos duros y configurar los parámetros básicos del sistema para ambos sistemas operativos.
 
+Para comenzar descargar e instalar Debian, el padre de Ubuntu, además no olviden documentar la creación de la máquina e instalación.
+
 ## Requisitos
 - Un ordenador con VirtualBox instalado
 - Imágenes ISO de Ubuntu y Windows
