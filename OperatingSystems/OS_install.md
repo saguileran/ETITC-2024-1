@@ -19,8 +19,8 @@ El objetivo de este ejercicio práctico es profundizar el conocimiento de los al
    - Crear una máquina virtual para Ubuntu
    - Crear una máquina virtual para Windows
 
-     > [!IMPORTANT]
-     > Ambas máquinas deben estar creadas con el doble de requisitos mencionados y 100 gb de disco duro.
+> [!IMPORTANT]
+> Ambas máquinas deben estar creadas con el doble de requisitos mencionados y 100 gb de disco duro.
 
 ### 3. Descripción general de particiones
    - Entender las particiones: primarias, extendidas y lógicas
