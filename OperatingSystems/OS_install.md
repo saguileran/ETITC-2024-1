@@ -8,7 +8,7 @@ El objetivo de este ejercicio práctico es profundizar el conocimiento de los al
 - Imágenes ISO de Ubuntu y Windows
 - Conocimientos básicos de particionamiento e instalación de sistemas operativos
 
-## Esquema del ejercicio
+## Esquema del Ejercicio
 
 ### 1. Introducción a VirtualBox
    - Visión general de VirtualBox
@@ -18,6 +18,9 @@ El objetivo de este ejercicio práctico es profundizar el conocimiento de los al
 ### 2. Creación de máquinas virtuales
    - Crear una máquina virtual para Ubuntu
    - Crear una máquina virtual para Windows
+
+     > [!IMPORTANT]
+     > Ambas máquinas deben estar creadas con el doble de requisitos mencionados y 100 gb de disco duro.
 
 ### 3. Descripción general de particiones
    - Entender las particiones: primarias, extendidas y lógicas
@@ -34,7 +37,6 @@ El objetivo de este ejercicio práctico es profundizar el conocimiento de los al
      - Partición `/home`: Espacio restante
    - Finalización de la instalación
    - Configuración básica y actualizaciones 
-
 
 ### 5. Instalación de Windows
    - Arranque desde la ISO de Windows
@@ -56,7 +58,7 @@ El objetivo de este ejercicio práctico es profundizar el conocimiento de los al
    - Redactar un breve informe resumiendo los pasos de instalación y configuración
    - Reflexione sobre los retos a los que se ha enfrentado y cómo los ha superado
 
-## Pasos detallados
+## Pasos Detallados
 
 ### Parte 1: Introducción a VirtualBox
 
@@ -99,8 +101,10 @@ El objetivo de este ejercicio práctico es profundizar el conocimiento de los al
    - Seleccione «Algo más» cuando se le pregunte por el tipo de instalación para particionar manualmente el disco.
 3. Crear particiones:
    - **Root (`/`) Partición:** Seleccionar espacio libre > Añadir > Tipo: Primaria, Tamaño: 20 GB, Punto de montaje: `/`
-   - **Partición de intercambio:** Seleccione espacio libre > Añadir > Tipo: Lógica, Tamaño: 2 GB, Usar como: área de intercambio
-   - **Partición Home (`/home`):** Seleccione el espacio libre > Añadir > Tipo: Lógica, Tamaño: Espacio restante, Punto de montaje: `/home`. Pueden usar el tutorial [Linux partitioning recommendations](https://www.youtube.com/watch?v=Wc4GjV_Ahb8) hast el minuto 7.
+   - **Partición de intercambio (swap):** Seleccione espacio libre > Añadir > Tipo: Lógica, Tamaño: 2 GB, Usar como: área de intercambio
+   - **Partición para el boot (EFI):** Seleccione espacio libre > Añadir > Tipo: Lógica, Tamaño: 512 bytes, Usar como: EFI
+   - **Partición Home (`/home`):** Seleccione el espacio libre > Añadir > Tipo: Lógica, Tamaño: Espacio restante, Punto de montaje: `/home`. Pueden usar el tutorial [Linux partitioning
+   - recommendations](https://www.youtube.com/watch?v=Wc4GjV_Ahb8) hast el minuto 7.
 
 4. Completa la instalación y configura una cuenta de usuario.
 5. Tras la instalación, actualice el sistema e instale los controladores necesarios. Usar códigos `sudo apt update && sudo apt upgrade`.
@@ -135,16 +139,22 @@ El objetivo de este ejercicio práctico es profundizar el conocimiento de los al
   - Particionamiento durante la instalación de Ubuntu
   - Partición durante la instalación de Windows
   - Pantalla final del escritorio de ambos sistemas operativos
-- Comenta las capturas de pantalla como si fueran un informe (1-2 páginas) resumiendo:
+- Comenta las capturas de pantalla como si fueran un informe resumiendo:
   - Los pasos de instalación de ambos sistemas operativos
   - Los pasos de configuración realizados tras la instalación
   - Desafíos encontrados y soluciones encontradas
 - Envíe las capturas de pantalla y el informe en un único archivo PDF.
 
+## Actividad Complementaria
+
+Ahora instala windows server y reporta el proceso.
+
+> [!NOTE]
+> Pueden realizar los reportes escribiendo en word o utilizando lenguaje markdown que es el principal de github.
+
 ## Referencias
 
 - [BIOS, CMOS, UEFI - What's the difference?](https://www.youtube.com/watch?v=LGz0Io_dh_I&t=1s)
-
 - [BIOS and UEFI As Fast As Possible](https://www.youtube.com/watch?v=zIYkol851dU)
 
 ---
