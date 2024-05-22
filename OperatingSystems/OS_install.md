@@ -31,7 +31,7 @@ El objetivo de este ejercicio práctico es profundizar el conocimiento de los al
    - Seleccionar el idioma deseado
    - Navegando por el proceso de instalación
    - Particionado del disco duro virtual:
-     - Partición `/EFI`: Espacio para el UEFI boot
+     - Partición `/EFI`: 512 bytes
      - Partición `/` (raíz): 20 GB
      - Partición `swap`: 2 GB (o el doble del tamaño de la RAM)
      - Partición `/home`: Espacio restante
