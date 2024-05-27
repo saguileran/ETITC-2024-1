@@ -256,3 +256,4 @@ Esta guía proporciona una base sólida para gestionar una base de datos mediana
 
 - [Solve SQL - HackerRank](https://www.hackerrank.com/domains/sql)
 - [SQL (Basic) Skills Certification Test - HackerRank](https://www.hackerrank.com/skills-verification/sql_basic)
+- [coding-interview-university - Github](https://github.com/jwasham/coding-interview-university)
