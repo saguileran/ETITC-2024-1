@@ -325,6 +325,7 @@ Con esta base, podrás explorar más etiquetas y funcionalidades de JSTL, mejora
 
 - [JSP Standard Tag Library (JSTL) & Expression Language (EL) - ntu](https://www3.ntu.edu.sg/home/ehchua/programming/java/JavaServerPages.html#zz-10.)
 - [JSTL Tutorial, JSTL Tags Example - DigitalOcean](https://www.digitalocean.com/community/tutorials/jstl-tutorial-jstl-tags-example#jstl-jars)
+- [A Guide to the JSTL Library - Baeldung](https://www.baeldung.com/jstl)
 - [Apache tag libs - Tomcat](https://tomcat.apache.org/taglibs/site/tutorial.html)
 
 ### Guias Complementarias
