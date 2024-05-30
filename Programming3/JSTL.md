@@ -45,6 +45,55 @@ Para utilizar JSTL en tu proyecto, debes seguir los siguientes pasos:
        <version>1.2</version>
    </dependency>
    ```
+   Este sería un ejemplo de todo el archivo `pon.xml`:
+   ```xml
+    <project xmlns="http://maven.apache.org/POM/4.0.0" 
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+             xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>JSTL</groupId>
+    <artifactId>JSTL</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <packaging>war</packaging>
+    <name>JSTL</name>
+    <description>JSTL</description>
+    
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>21</maven.compiler.source>
+        <maven.compiler.target>21</maven.compiler.target>
+    </properties>
+    
+    <dependencies>
+        <dependency>
+            <groupId>jstl</groupId>
+            <artifactId>jstl</artifactId>
+            <version>1.2</version>
+        </dependency>
+        <dependency>
+            <groupId>taglibs</groupId>
+            <artifactId>standard</artifactId>
+            <version>1.1.2</version>
+        </dependency>
+    </dependencies>
+    
+    <build>
+        <plugins>
+        <plugin>
+            <artifactId>maven-compiler-plugin</artifactId>
+            <version>3.8.1</version>
+            <configuration>
+            <release>21</release>
+            </configuration>
+        </plugin>
+        <plugin>
+            <artifactId>maven-war-plugin</artifactId>
+            <version>3.2.3</version>
+        </plugin>
+        </plugins>
+    </build>
+    </project>
+   ```
 
 2. **Incluir las bibliotecas JSTL en las páginas JSP:**
    Añade la directiva de biblioteca JSTL al inicio de tu archivo JSP:
@@ -60,25 +109,77 @@ Para utilizar JSTL en tu proyecto, debes seguir los siguientes pasos:
 #### Core Tags
 Las etiquetas principales (core) proporcionan funciones básicas de control de flujo y manipulación de datos.
 
-1. **Iteraciones:**
-   ```jsp
-   <c:forEach var="item" items="${itemList}">
-       ${item.name}
-   </c:forEach>
-   ```
+1. **Declaración de Variables:**
+    
+    - Cadena de caracteres:
+        ```jsp
+        <c:set var="greeting" value="Hello, World!"/>
+        <c:set var="numberString" value="12234" /> 
+        ```
+    - Número:
+        ```jsp
+        <c:set var="number" value="<%= new Random().nextInt(1000)%>"/>
+        ```
+    - Lista:
+        ```jsp
+        <c:set var="lista" value="<%= new int[] {1,2,3,4,5,6,7,8}%>"/> 
+        <c:set var="alphabet" value="${['a', 'b']}"/>
+        <c:set var="alphabet">A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z</c:set>
+        ```
+    - Fecha:
+        ```jsp
+        <c:set var="now" value="<%= new Date()%>"/>
+        <c:set var="now_hour" value="<%= new Date().getHours()%>"/> 
+        ```
 
-2. **Condiciones:**
-   ```jsp
-   <c:if test="${user.loggedIn}">
-       Bienvenido, ${user.name}!
-   </c:if>
-   ```
+        <c:set var="enablebtnRelatedDocs" value="${true}" scope="request"/>
 
-3. **Eliminación de duplicados:**
-   ```jsp
-   <c:set var="greeting" value="Hello, World!" />
-   <c:out value="${greeting}" />
-   ```
+2. **Visualización de Variables**
+   - Cadena de caracteres:
+        ```jsp
+        <c:out value="${greeting}"/>
+        <c:out value="${'<b>This is a <c:out> example </b>'}" escapeXml="false"/>
+        ```
+    - Números:
+        ```jsp
+        <c:out value="<%= num %>"/>
+        <c:out value="${number}"/>
+        ```
+3. **Iteraciones:**
+   - FoeEach:
+        ```jsp
+        <c:forEach var="item" items="${itemList}">
+            ${item.name}
+        </c:forEach>
+
+        <c:forEach var="index" begin="0" end="4">
+            <p> ${index}: </p>
+        <c:choose>
+        ```
+    - ForTokens
+        ```jsp
+        <c:forTokens items="${alphabet}" delims="," var="letter">
+            ${letter}
+        </c:forTokens>
+        ```
+4. **Condiciones:**
+    ```jsp
+    <c:if test="${number>500}" var="lucky">
+        <p>Welcome, u are lucky ${number}. Condition ${lucky}</p>
+    </c:if>
+
+    <c:choose>
+        <c:when test="${now_hour<12}">
+            <p>Good morning, ${now_hour}</p>
+        </c:when>
+        <c:when test="${number<=18}">
+            <p>Good afternoon, ${now_hour}</p> 
+        </c:when>
+        <c:otherwise>
+            <p>Good evening, ${now_hour}</p>
+        </c:otherwise>
+    </c:choose>
+    ```
 
 #### Formatting Tags
 Estas etiquetas permiten formatear números, fechas y cadenas.
@@ -89,9 +190,16 @@ Estas etiquetas permiten formatear números, fechas y cadenas.
    ```
 
 2. **Formateo de fechas:**
-   ```jsp
-   <fmt:formatDate value="${now}" pattern="dd/MM/yyyy" />
-   ```
+    ```jsp
+    <p>Simple Formatted: <fmt:formatDate value="${now}" pattern="dd/MM/yyyy" /></p>
+    <p>Formatted Time: <fmt:formatDate type="time" value="${now}" /></p> 
+    <p>Formatted Date: <fmt:formatDate type="date" value="${now}" /></p> 
+    <p>Formatted Date and Time: <fmt:formatDate type="both" value="${now}" /></p> 
+    <p>Short Format: <fmt:formatDate type="both" dateStyle="short" timeStyle="short" value="${now}" /></p> 
+    <p>Medium Format: <fmt:formatDate type="both" dateStyle="medium" timeStyle="medium" value="${now}" /></p> 
+    <p>Long Format: <fmt:formatDate type="both" dateStyle="long" timeStyle="long" value="${now}" /></p> 
+    <p>Custom Pattern (yyyy-MM-dd): <fmt:formatDate pattern="yyyy-MM-dd" value="${now}" /></p> 
+    ```
 
 #### XML Tags
 Las etiquetas XML permiten manipular y mostrar datos XML.
@@ -113,7 +221,19 @@ Las etiquetas XML permiten manipular y mostrar datos XML.
 #### Core Tags
 Las etiquetas principales de JSTL permiten realizar operaciones básicas y esenciales en JSP sin necesidad de escribir código Java explícito.
 
-1. **`<c:forEach>`:**
+1. **`<c:set>`:**
+   Establece el valor de una variable de página.
+   ```jsp
+   <c:set var="variable" value="value" />
+   ```
+
+2. **`<c:out>`:**
+   Muestra el valor de una expresión, escapando caracteres especiales de HTML.
+   ```jsp
+   <c:out value="${expression}" />
+   ```
+
+3. **`<c:forEach>`:**
    Itera sobre una colección de elementos.
    ```jsp
    <c:forEach var="item" items="${itemList}">
@@ -121,7 +241,7 @@ Las etiquetas principales de JSTL permiten realizar operaciones básicas y esenc
    </c:forEach>
    ```
 
-2. **`<c:if>`:**
+4. **`<c:if>`:**
    Evalúa una condición y muestra el contenido si la condición es verdadera.
    ```jsp
    <c:if test="${condition}">
@@ -129,7 +249,7 @@ Las etiquetas principales de JSTL permiten realizar operaciones básicas y esenc
    </c:if>
    ```
 
-3. **`<c:choose>`, `<c:when>`, `<c:otherwise>`:**
+5. **`<c:choose>`, `<c:when>`, `<c:otherwise>`:**
    Estructura de control condicional similar a `switch` en Java.
    ```jsp
    <c:choose>
@@ -143,18 +263,6 @@ Las etiquetas principales de JSTL permiten realizar operaciones básicas y esenc
            <!-- Contenido si ninguna condición es verdadera -->
        </c:otherwise>
    </c:choose>
-   ```
-
-4. **`<c:set>`:**
-   Establece el valor de una variable de página.
-   ```jsp
-   <c:set var="variable" value="value" />
-   ```
-
-5. **`<c:out>`:**
-   Muestra el valor de una expresión, escapando caracteres especiales de HTML.
-   ```jsp
-   <c:out value="${expression}" />
    ```
 
 #### Formatting Tags
@@ -220,8 +328,13 @@ Las etiquetas XML de JSTL proporcionan soporte para trabajar con datos XML.
 </head>
 <body>
     <h1>Usuarios</h1>
+    <!-- Add a list of users here -->
     <c:forEach var="user" items="${users}">
-        <p>${user.name}</p>
+        <p>${user}</p>
+    </c:forEach>
+    <!-- Add a list of objects with a class person that has name, age, and surname -->
+    <c:forEach var="person" items="${people}">
+        <p>${person.name}</p>
     </c:forEach>
 </body>
 </html>
@@ -232,6 +345,7 @@ Las etiquetas XML de JSTL proporcionan soporte para trabajar con datos XML.
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%@page import="java.util.*" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -239,7 +353,8 @@ Las etiquetas XML de JSTL proporcionan soporte para trabajar con datos XML.
 </head>
 <body>
     <h1>Formato de Números y Fechas</h1>
-    <p>Número formateado: <fmt:formatNumber value="${12345.6789}" type="currency" /></p>
+    <p>Número formateado: <fmt:formatNumber value="${12345.6789}" type="percent" /></p>
+    <!-- Create a varaible named now of time date -->
     <p>Fecha formateada: <fmt:formatDate value="${now}" pattern="dd/MM/yyyy" /></p>
 </body>
 </html>
@@ -247,9 +362,7 @@ Las etiquetas XML de JSTL proporcionan soporte para trabajar con datos XML.
 
 #### Ejemplo de Página JSP con XML Tags
 ```jsp
-<%@ page language="java" contentType="text/html; charset=UTF-8
-
-" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/xml" prefix="x" %>
 <!DOCTYPE html>
@@ -275,7 +388,7 @@ Vamos a crear un pequeño proyecto de ejemplo que muestre una lista de usuarios 
 1. **Modelo (User.java)**
    ```java
    public class User {
-       private int id;
+       private int age;
        private String name;
        private String email;
 
@@ -283,16 +396,45 @@ Vamos a crear un pequeño proyecto de ejemplo que muestre una lista de usuarios 
    }
    ```
 
-2. **Controlador (UserServlet.java)**
-   ```java
-   @WebServlet("/users")
-   public class UserServlet extends HttpServlet {
-       protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-           List<User> users = UserDAO.getAllUsers();
-           request.setAttribute("users", users);
-           request.getRequestDispatcher("/users.jsp").forward(request, response);
-       }
-   }
+2. **Controlador/Servlet (UserServlet.java)**
+    ```java
+    package testeo;
+
+    import jakarta.servlet.ServletException;
+    import jakarta.servlet.annotation.WebServlet;
+    import jakarta.servlet.http.HttpServlet;
+    import jakarta.servlet.http.HttpServletRequest;
+    import jakarta.servlet.http.HttpServletResponse;
+    import java.io.IOException;
+    import java.util.ArrayList;
+    import java.util.List;
+
+    import testeo.User;
+
+    @WebServlet("/UserServlet")
+    public class UserServlet extends HttpServlet {
+        private static final long serialVersionUID = 1L;
+
+        public UserServlet() {}
+
+        protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+            User Sebas = new User();
+            User Nestor = new User();
+            
+            Sebas.setInfo(27, "Sebas", "saguileran@itc.edu.co");
+            Nestor.setInfo(25, "Nestor", "naaguileran@itc.edu.co");
+            
+            List<User> users = new ArrayList<>();
+            users.add(Sebas); users.add(Nestor);
+            request.setAttribute("users", users);
+            request.getRequestDispatcher("/users.jsp").forward(request, response);
+        }
+
+        protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+            doGet(request, response);
+        }
+
+    }
    ```
 
 3. **Vista (users.jsp)**
@@ -325,7 +467,7 @@ Con esta base, podrás explorar más etiquetas y funcionalidades de JSTL, mejora
 
 - [JSP Standard Tag Library (JSTL) & Expression Language (EL) - ntu](https://www3.ntu.edu.sg/home/ehchua/programming/java/JavaServerPages.html#zz-10.)
 - [JSTL Tutorial, JSTL Tags Example - DigitalOcean](https://www.digitalocean.com/community/tutorials/jstl-tutorial-jstl-tags-example#jstl-jars)
-- [A Guide to the JSTL Library - Baeldung](https://www.baeldung.com/jstl)
+- [A Guide to the JSTL Library - **Baeldung**](https://www.baeldung.com/jstl)
 - [Apache tag libs - Tomcat](https://tomcat.apache.org/taglibs/site/tutorial.html)
 
 ### Guias Complementarias
