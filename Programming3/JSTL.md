@@ -75,6 +75,12 @@ Para utilizar JSTL en tu proyecto, debes seguir los siguientes pasos:
             <artifactId>standard</artifactId>
             <version>1.1.2</version>
         </dependency>
+        <dependency>
+            <groupId>jakarta.servlet</groupId>
+            <artifactId>jakarta.servlet-api</artifactId>
+            <version>6.0.0</version>
+            <scope>provided</scope>
+        </dependency>
     </dependencies>
     
     <build>
@@ -133,8 +139,27 @@ Las etiquetas principales (core) proporcionan funciones básicas de control de f
         ```
 
         <c:set var="enablebtnRelatedDocs" value="${true}" scope="request"/>
+    
+   - Arhivo XML
+        ```jsp
+        <c:set var = "xmltext">
+         <books>
+            <book>
+               <name>Padam History</name>
+               <author>ZARA</author>
+               <price>100</price>
+            </book>
+            
+            <book>
+               <name>Great Mistry</name>
+               <author>NUHA</author>
+               <price>2000</price>
+            </book>
+         </books>
+      </c:set>
+      ```
 
-2. **Visualización de Variables**
+2. **Visualización de Variables:**
    - Cadena de caracteres:
         ```jsp
         <c:out value="${greeting}"/>
@@ -204,17 +229,78 @@ Estas etiquetas permiten formatear números, fechas y cadenas.
 #### XML Tags
 Las etiquetas XML permiten manipular y mostrar datos XML.
 
-1. **Parseo de XML:**
+1. **Declarando Variables:**
+   ```jsp
+   <x:set var = "fragment" select = "$output//book"/>
+   ```
+2. **Parseo de XML:**
    ```jsp
    <x:parse var="doc" xml="${xmlString}" />
+   <x:parse xml = "${xmltext}" var = "output"/>
    ```
-
-2. **Iteración sobre nodos XML:**
+3. **Visualización sobre XML:**
    ```jsp
-   <x:forEach select="$doc/root/element" var="element">
-       <x:out select="$element/@attribute" />
-   </x:forEach>
+   <x:out select = "$output/books/book[1]/name" />
+   <x:out select = "$output/books/book[2]/price" />
    ```
+4. **Iteración sobre nodos XML:**
+    ```jsp
+    <ul class = "list">
+        <x:forEach select = "$output/books/book/name" var = "item">
+        <li>Book Name: <x:out select = "$item" /></li>
+        </x:forEach>
+    </ul>
+    ```
+5. **Condicionales:**
+    ```jsp
+    <x:if select = "$output/books[1]/book/price > 100">
+         Book prices are very high
+    </x:if>
+    ```
+
+También es posible agregar un documento XML a nuestro jsp. Para ello primero creen el archivo `citizens.xml`:
+```xml
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<citizens>
+    <citizen>
+        <ssn>Z345T</ssn>
+        <firstname>Cheryl</firstname>
+        <lastname>Johnson</lastname>
+        <role>Manager</role>
+        <salary>12000</salary>
+    </citizen>
+    <citizen>
+        <ssn>Z446T</ssn>
+        <firstname>John</firstname>
+        <lastname>Smith</lastname>
+        <role>Employee</role>
+        <salary>1000</salary>
+    </citizen>
+    <citizen>
+        <ssn>Z335T</ssn>
+        <firstname>Justin</firstname>
+        <lastname>Claire</lastname>
+        <role>Senior Manager</role>
+        <salary>14000</salary>
+    </citizen>
+    <citizen>
+        <ssn>Z389T</ssn>
+        <firstname>Clark</firstname>
+        <lastname>Rick</lastname>
+        <role>Employee</role>
+        <salary>2000</salary>
+    </citizen>
+</citizens>
+```
+Para importarlo deben usar el tag `<c:import url="/citizens.xml" var="citizenXML"/>` y agregar el siguiente código a su archivo jsp
+```jsp
+<x:parse var="doc" xml="${citizenXML}" />
+<x:set var="citizen1firstname" select="$doc/citizens/citizen[1]/firstname/text()"/>
+<x:out select="$citizen1firstname"/>
+<x:set var="citizen1lastname" select="$doc/citizens/citizen[1]/lastname/text()"/>
+<x:out select="$citizen1lastname"/>
+```
+
 
 ### 4. Detalles de las Etiquetas JSTL
 
@@ -386,15 +472,26 @@ Vamos a crear un pequeño proyecto de ejemplo que muestre una lista de usuarios 
 #### Estructura del Proyecto
 
 1. **Modelo (User.java)**
-   ```java
-   public class User {
-       private int age;
-       private String name;
-       private String email;
+    ```java
+    package testeo;
 
-       // Getters y Setters
-   }
-   ```
+    public class User {
+        public int age;
+        public String name;
+        public String email;
+
+        // Getters y Setters
+        public void setInfo(int age, String name, String email) {
+            this.age = age;
+            this.name = name;
+            this.email = email;
+        }
+        
+        public int getAge() {return this.age;}
+        public String getName() {return this.name;}
+        public String getEmail() {return this.email;}
+    }
+    ```
 
 2. **Controlador/Servlet (UserServlet.java)**
     ```java
@@ -466,9 +563,9 @@ Con esta base, podrás explorar más etiquetas y funcionalidades de JSTL, mejora
 ### Guias Principales
 
 - [JSP Standard Tag Library (JSTL) & Expression Language (EL) - ntu](https://www3.ntu.edu.sg/home/ehchua/programming/java/JavaServerPages.html#zz-10.)
-- [JSTL Tutorial, JSTL Tags Example - DigitalOcean](https://www.digitalocean.com/community/tutorials/jstl-tutorial-jstl-tags-example#jstl-jars)
 - [A Guide to the JSTL Library - **Baeldung**](https://www.baeldung.com/jstl)
 - [Apache tag libs - Tomcat](https://tomcat.apache.org/taglibs/site/tutorial.html)
+- [JSTL - XML <x:if> Tag - TutorialsPoint](https://www.tutorialspoint.com/jsp/jstl_xml_if_tag.htm)
 
 ### Guias Complementarias
 
@@ -477,7 +574,8 @@ Con esta base, podrás explorar más etiquetas y funcionalidades de JSTL, mejora
 - [JSTL (JSP Standard Tag Library) - javatpoint](https://www.javatpoint.com/jstl)
 - [JSP Standard Tag Library (JSTL) Tutorial](https://www.tutorialspoint.com/jsp/pdf/jsp_standard_tag_library.pdf)
 - [JavaServer Pages Standard Tag Library](https://www.inf.ed.ac.uk/teaching/courses/ec/handouts/jstl.pdf)
-
+- [JSTL Tutorial, JSTL Tags Example - DigitalOcean](https://www.digitalocean.com/community/tutorials/jstl-tutorial-jstl-tags-example#jstl-jars)
+- 
 ### Repositorios
 
 - [JSTL-Tutorials](https://github.com/CodeJamm/JSTL-Tutorials)
