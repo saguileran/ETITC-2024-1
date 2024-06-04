@@ -424,6 +424,6 @@ Esta lección práctica demostró cómo utilizar etiquetas SQL en JSTL con MySQL
 
 # Referencias
 
-- [JSTL - SQL $\lt$sql:param$\gt$ Tag - TutorialsPoint](https://www.tutorialspoint.com/jsp/jstl_sql_param_tag.htm)
+- [JSTL - SQL \<sql:param> Tag - TutorialsPoint](https://www.tutorialspoint.com/jsp/jstl_sql_param_tag.htm)
 - [JSP - Database Access - TutorialsPoint](https://www.tutorialspoint.com/jsp/jsp_database_access.htm)
 - [Java Server-Side Programming - 10.8  JSTL sql Actions](https://www3.ntu.edu.sg/home/ehchua/programming/java/JavaServerPages.html#zz-10.8)
