@@ -27,6 +27,7 @@ Al final de esta lección, los estudiantes serán capaces de:
     - `<sql:query>`
     - `<sql:update>`
     - `<sql:param>`
+    - `<sql:dateParam>`
 3. **Ejecutando Operaciones CRUD**
     - Creación de una base de datos y una tabla en MySQL.
     - Operación SELECT.
@@ -34,7 +35,7 @@ Al final de esta lección, los estudiantes serán capaces de:
     - Operación UPDATE.
     - Operación DELETE.
 4. **Aplicación de Ejemplo**
-    - Una aplicación simple de JST para manejar una lista de estudiantes.
+    - Una aplicación simple de JST para manejar una lista de licores y su inventario.
 
 ## 1. Configuración del Entorno
 
@@ -55,7 +56,7 @@ Al final de esta lección, los estudiantes serán capaces de:
 
     >Eres el diseñador de una bases de datos y trabajas para una licoreria. Crea una base de datos sobre una licores y agrega otra tabla relacionada sobre el inventario, cada tabla de tener mínimo 7 filas y 5 columnas o más. Además, enfoca los datos a licores de Colombia y agrega datos reales. Escribe los datos utilizando lenguajge mysql. 
 
-    Modifiquen y acutalicen los datos generados. La base de datos debe llamarse `licoreria` 
+    Modifiquen y acutalicen los datos generados. La base de datos debe llamarse `licoreria`
 
     ```sql
     CREATE DATABASE licoreria;
@@ -130,6 +131,8 @@ Esta etiqueta configura una fuente de datos para que la utilicen las etiquetas S
                    user="dba" password="123456789.eT"/>
 ```
 
+La base de datos quedara guardada bajo el nombre `dbSource` y para llamarla deberas agregar `dataSource = "${dbSource}"` a los tags.
+
 ### `<sql:query>`
 
 Esta etiqueta se utiliza para ejecutar sentencias SQL SELECT.
@@ -155,15 +158,226 @@ Esta etiqueta se utiliza para ejecutar sentencias SQL INSERT, UPDATE y DELETE.
 Esta etiqueta se utiliza para establecer parámetros en las consultas SQL para evitar la inyección SQL.
 
 ```jsp
+<c:set var="min_cantidad" value="30"/>
 <sql:query dataSource="${dbSource}" var="result">
-    SELECT * FROM  WHERE Tipo = <sql:param value="${param.id}"/>;
+    SELECT * FROM Inventario WHERE Cantidad >= ?;
+    <sql:param value="${min_cantidad}"/>
 </sql:query>
+```
+también pueden definir la variable usando EL
+
+```jsp
+<%int min_cantidad = 31;%>
+<sql:query dataSource="${dbSource}" var="result">
+    SELECT * FROM Inventario WHERE Cantidad >= ?;
+    <sql:param value="<%= min_cantidad %>"/>
+</sql:query>
+```
+
+### `<sql:dateParam>`
+
+Esta etiqueta se utiliza para establecer parámetros de tipo fecha en las consultas SQL para evitar la inyección SQL.
+
+```jsp
+<sql:query dataSource="${dbSource}" var="result">
+    SELECT * FROM  WHERE Tipo = ?;
+    <sql:param value="${param.id}"/>
+</sql:query>
+```
+
+### Un ejemplo utilizando EL y JSTL-sql
+
+```jsp
+<%
+Date Fecha_Llegada = new Date("2020/12/16");
+Date Fecha_Expiracion = new Date("2020/12/16");
+int cantidad = 8;
+int ID_inventario = 10;
+int ID_licor = 2;
+%>
+
+<sql:update dataSource = "${dbSource}" var = "count">
+    INSERT INTO Inventario
+        (ID, ID_Licor, Cantidad, Fecha_Llegada, Fecha_Expiracion) 
+        VALUES (?, ?, ?, ?, ?);
+<sql:param value = "<%=ID_inventario%>" />
+<sql:param value = "<%=ID_licor%>" />
+<sql:param value = "<%=cantidad%>" />    	 
+<sql:dateParam value = "<%=Fecha_Llegada%>" type = "DATE" />
+<sql:dateParam value = "<%=Fecha_Expiracion%>" type = "DATE" />
+</sql:update>
+```
+
+## Ejemplo utilizando EJBS
+
+Primero agreguemos la dependecia a Maven correspondiente a los EJB.
+```xml
+<dependency>
+    <groupId>jakarta.ejb</groupId>
+    <artifactId>jakarta.ejb-api</artifactId>
+    <version>4.0.1</version>
+</dependency>
+```
+Ahora creen un EJB llamado Licor y que pertenezca al paquete `ejbs`
+
+```java
+package ejbs;
+import java.util.Date;
+
+import jakarta.ejb.LocalBean;
+import jakarta.ejb.Stateless;
+
+@Stateless
+@LocalBean
+public class Licor implements LicorRemote {
+	public Date Fecha_Llegada;
+	public Date Fecha_Expiracion;
+	public int cantidad;
+	public int ID_inventario;
+	public int ID_licor;
+    
+public void Define(String Fecha_Llegada, String Fecha_Expiracion, int cantidad, int ID_inventario, int ID_licor) {
+    	this.Fecha_Llegada =  new Date(Fecha_Llegada);
+    	this.Fecha_Expiracion = new Date(Fecha_Expiracion);
+    	this.cantidad = cantidad;
+    	this.ID_inventario = ID_inventario;
+    	this.ID_licor = ID_licor;
+    }
+    
+}
+```
+Y en el archivo JSP agregar
+```jsp
+<%@ page import = "ejbs.Licor" %>
+...
+<%
+    Licor chorros = new Licor();
+    chorros.Define("2020/12/16", "2021/12/16", 16, 15, 2);
+%>
+    <sql:update dataSource = "${dbSource}" var = "count">
+        INSERT INTO Inventario
+            (ID, ID_Licor, Cantidad, Fecha_Llegada, Fecha_Expiracion) 
+            VALUES (?, ?, ?, ?, ?);
+        <sql:param value = "<%=chorros.ID_inventario%>" />
+        <sql:param value = "<%=chorros.ID_licor%>" />
+        <sql:param value = "<%=chorros.cantidad%>" />    	 
+        <sql:dateParam value = "<%=chorros.Fecha_Llegada%>" type = "DATE" />
+        <sql:dateParam value = "<%=chorros.Fecha_Expiracion%>" type = "DATE" />
+    </sql:update>
+```
+## 2.1 Servlet Llamando la Base de Datos
+
+
+```java
+import java.io.*;
+import java.util.*;
+import java.sql.*;
+ 
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import java.io.IOException;
+
+public class Consulta extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+       
+    public Consulta() {
+        super();
+    }
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// JDBC driver name and database URL
+	    final String JDBC_DRIVER = "com.mysql.jdbc.Driver";  
+	    final String DB_URL="jdbc:mysql://localhost:3306/licoreria";
+	
+	    //  Database credentials
+	    final String USER = "dba";
+	    final String PASS = "123456789.eT";
+	
+	    // Set response content type
+	    response.setContentType("text/html");
+	    PrintWriter out = response.getWriter();
+	    String title = "Database Result";
+		
+		out.println("""
+				<!DOCTYPE html>
+				<html>
+		        <head><title> %s </title></head>
+		        <body bgcolor = \"#f0f0f0\">
+		        <h1 align = "center"> %s  </h1>
+				""".formatted(title, title));
+		try {
+	         // Register JDBC driver
+	         Class.forName(JDBC_DRIVER);
+
+	         // Open a connection
+	         Connection conn = DriverManager.getConnection(DB_URL, USER, PASS);
+
+	         // Execute SQL query
+	         Statement stmt = conn.createStatement();
+	         String sql;
+	         sql = "SELECT * FROM Licores;";
+	         ResultSet rs = stmt.executeQuery(sql);
+         	 out.println("<h2>Los datos de la base de datos licoraria son:</h2>");
+	         // Extract data from result set
+	         while(rs.next()){
+	            //Retrieve by column name
+	        	int ID = rs.getInt("ID");
+	        	String Nombre  = rs.getString("Nombre");
+	        	String Tipo = rs.getString("Tipo");
+	        	String Origen = rs.getString("Origen");
+	        	String Volumen = rs.getString("Volumen");
+	            double Precio = rs.getDouble("Precio");
+	            
+	            out.println("""
+	            		<h3>Licor: %s</h3>
+	            		<table border="1">
+						    <tr>
+						        <th>Id</th>
+						        <th>Tipo</th>
+						        <th>Origen</th>
+						        <th>Precio</th>
+						        <th>Volumen</th>
+						    </tr>
+					        <tr>
+					            <td>%d</td>
+					            <td>%s</td>
+					            <td>%s</td>
+					            <td>%.2f</td>
+					            <td>%s</td>
+					        </tr>
+						</table>
+	            		""".formatted(Nombre, ID, Tipo, Origen, Precio, Volumen));
+	         }
+	         out.println("</body></html>");
+
+	         // Clean-up environment
+	         rs.close();
+	         stmt.close();
+	         conn.close();
+	      } catch(SQLException se) {
+	         //Handle errors for JDBC
+	         se.printStackTrace();
+	      } catch(Exception e) {
+	         //Handle errors for Class.forName
+	         e.printStackTrace();
+	      } finally {
+	      } //end try
+	}
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) 
+			throws ServletException, IOException {
+		doGet(request, response);
+	}
+}
 ```
 
 ## 3. Realización de Operaciones CRUD
 
 
-### Crear una base de datos y una tabla en MySQL
+### Adiciona una tabla de inventario 
 
 Ahora, agrega una tabla en la base de datos llamada `Inventario`.
 
@@ -209,8 +423,9 @@ Utilicen la siguiente plantilla para crear un archivo JSP llamado `index.jsp`, a
 <h2>Inventario</h2>
 
 <h3>Original</h3>
-<!-- Agregar código aca -->
-<!-- Antes de una tabla debe ejecutarse el select-->
+<sql:query dataSource="${dbSource}" var="result">
+    SELECT * FROM Inventario;
+</sql:query>
 <table border="1">
     <tr>
         <th>Id</th>
@@ -230,13 +445,14 @@ Utilicen la siguiente plantilla para crear un archivo JSP llamado `index.jsp`, a
     </c:forEach>
 </table>
 
-
 <h3>Después de las opreaciones CRUD</h3>
-<!-- Agregar código aca incluido la visualización de la tabla -->
-
+<!-- Agregar código aca incluido la consulta en MySQL y la visualización de la tabla -->
 </body>
 </html>
 ```
+
+>[!IMPORTANT]
+>Siempre que quieran utilizar la base de datos dentro de la tabla deben antes hacer la consulta y guardarla, en este caso la consulta queda guardada en la variable `results`.
 
 ### Operación SELECT
 
@@ -329,7 +545,7 @@ Cree una aplicación JSP sencilla para gestionar una licoreria pequeña. La apli
     <a href="eliminarLicorID.jsp">Eliminar un licor por ID.</a>
     ```
 
-### Agregar un Nuevo Estudiante
+### Agregar un Nuevo Licor
 
 1. **JSP File: datosLicor.jsp**
 
@@ -361,7 +577,7 @@ Cree una aplicación JSP sencilla para gestionar una licoreria pequeña. La apli
     <c:redirect url="verLicores.jsp"/>
     ```
 
-### Actualizar Estudiante
+### Actualizar Licores
 
 1. **JSP File: actualizarDatosLicor.jsp**
 
@@ -390,7 +606,7 @@ Cree una aplicación JSP sencilla para gestionar una licoreria pequeña. La apli
     <c:redirect url="verLicores.jsp"/>
     ```
 
-### Eliminar un Estudiante
+### Eliminar un Licor
 
 1. **JSP File: eliminarLicorID.jsp**
 
