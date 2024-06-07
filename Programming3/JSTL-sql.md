@@ -243,7 +243,6 @@ public void Define(String Fecha_Llegada, String Fecha_Expiracion, int cantidad, 
     	this.ID_inventario = ID_inventario;
     	this.ID_licor = ID_licor;
     }
-    
 }
 ```
 Y en el archivo JSP agregar
